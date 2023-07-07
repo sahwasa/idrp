@@ -1,0 +1,39 @@
+{
+  "name": "kcg",
+  "version": "1.0.0",
+  "description": "해양경찰청 연안활동장소에 대한 위험도 평가 및 예측체계",
+  "main": "gulpfile.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limyoursun/kcg.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limyoursun/kcg/issues"
+  },
+  "homepage": "https://github.com/limyoursun/kcg#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "del": "^6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-file-include": "^2.1.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "merge-stream": "^2.0.0",
+    "sass": "^1.59.3"
+  },
+  "dependencies": {
+    "chartjs": "^0.3.24",
+    "chartjs-plugin-doughnutlabel": "^2.0.3",
+    "jquery": "^3.6.0",
+    "jquery-ui": "^1.12.1"
+  }
+}

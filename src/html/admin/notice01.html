@@ -1,0 +1,93 @@
+@@include('../inc/top.html')
+
+<body>
+  @@include('../inc/admin_header.html')
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">공지사항</h2>
+      <div>
+        <div>
+          <div class="standard_wrap">
+            <ul class="search f_sb">
+              <li>
+                <select name="" id="">
+                  <option value="검색조건">검색조건</option>
+                </select>
+                <input type="text" id="danger_name" placeholder="검색어를 입력하세요">
+                <button type="button" class="font_b btn_m btn_orange">검색</button>
+              </li>
+            </ul>
+          </div>
+          <div class="tbl_user">
+            <div class="tbl_top flex_wrap f_sb alignR">
+                <p>총 <span class="font_b">10</span>건</p>
+                <button onclick="location.href='notice01_2.html'" type="button" class="font_b btn_m btn_blue">등록</button>
+            </div>
+            <table class="tbl_com">
+              <caption>공지사항</caption>
+              <colgroup>
+                <col width="80px">
+                <col width="">
+                <col width="150px">
+                <col width="150px">
+                <col width="100px">
+                <col width="100px">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th scope="col">번호</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성자</th>
+                  <th scope="col">등록일</th>
+                  <th scope="col">파일</th>
+                  <th scope="col">수정</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="location.href='notice01_1.html'">
+                  <td>1</td>
+                  <td class="alignL">저를 클릭해주세요</td>
+                  <td>홍길동</td>
+                  <td>2022-06-09</td>
+                  <td>
+                    <span class="ico_circle ico_file">파일</span>
+                  </td>
+                  <td>
+                    <span class="ico_circle ico_edit">수정</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="paginate">
+              <a href="#" class="first" title="처음">〈〈</a>
+              <a href="#" class="pre" title="이전">〈</a>
+              <span>
+                <a href="#" class="on">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">7</a>
+                <a href="#">8</a>
+                <a href="#">9</a>
+                <a href="#">10</a>
+              </span>
+              <a href="#" class="next" title="다음">〉</a>
+              <a href="#" class="last" title="마지막">〉〉</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- // Contents -->
+  @@include('../inc/footer.html')
+
+
+</body>
+
+</html>

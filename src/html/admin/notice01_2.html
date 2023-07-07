@@ -1,0 +1,58 @@
+@@include('../inc/top.html')
+
+<body>
+  @@include('../inc/admin_header.html')
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">공지사항</h2>
+      <div>
+        <div class="alignR">
+          <button type="button" class="btn_m btn_blue">확인</button>
+          <button class="btn_m btn_lightgray">취소</button>
+        </div>
+        <div class="article">
+          <div class="manual_box">
+            <div class="tit_manual">
+              <span class="flex_wrap">
+                <select title="게시글 분류">
+                  <option value="분류">분류</option>
+                </select>
+                <input type="text" placeholder="제목을 입력해주세요">
+              </span>
+            </div>
+            <div class="manual_body">
+              <textarea name="content"></textarea>
+            </div>
+            <div class="manual_attach">
+              <div class="upload-btn-wrapper">
+                <input type="file" id="input_file" multiple="multiple">
+                <button type="button" class="upload-btn">파일첨부</button>
+              </div>
+              <form name="uploadForm" id="uploadForm" enctype="multipart/form-data" method="post">
+                <div id="dropZone">
+                  <div id="fileDragDesc"> 파일을 드래그 해주세요.</div>
+                  <table id="fileListTable">
+                    <tbody id="fileTableTbody">
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="alignR">
+            <button onclick="location.href='notice01.html'" class="btn_m btn_gray">목록</button>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- // Contents -->
+  @@include('../inc/footer.html')
+
+
+</body>
+
+</html>

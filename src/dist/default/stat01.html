@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감염병 위험도 플랫폼</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../../js/Chart.bundle.js"></script>
+  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../../js/file_attach.js"></script>
+  <script src="../../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header>
+  <h1 class="logo">
+    <a href="info01.html">
+      <img src="../../images/img_h1_title.png" alt="감염병 위험도 플랫폼">
+    </a>
+  </h1>
+  <ul class="gnb flex_wrap" role="navigation">
+    <li>
+      <a class="on" href="info01.html">공간정보 모니터링</a>
+    </li>
+    <li>
+      <a href="virus01.html">바이러스 모니터링</a>
+    </li>
+    <li>
+      <a href="stat01.html">공간정보 통계</a>
+      <ul class="sub">
+        <li><a href="stat01.html">온도</a></li>
+        <li><a href="#">습도</a></li>
+        <li><a href="#">이산화탄소</a></li>
+        <li><a href="#">변위</a></li>
+        <li><a href="#">열</a></li>
+        <li><a href="#">기침</a></li>
+        <li><a href="#">바이러스</a></li>
+        <li><a href="#">경보</a></li>
+      </ul>
+    </li>
+  </ul>
+  <div class="flex_wrap">
+    <div class="as_c util_wrap flex_wrap f_e">
+      <ul>
+        <li>
+          <span><b>관리자</b>님</span>
+          <span><a href="#" class="util user">내정보</a></span>
+        </li>
+        <li><a href="#" class="util log">로그인&sol;로그아웃</a></li>
+      </ul>
+    </div>
+    <a onclick="location.href='../admin/service01.html'" target="_blank" href="#" class="as_c link flex_wrap">
+      <span>플랫폼관리자사이트</span>
+      <img src="../../images/ico_blank.png" alt="플랫폼 관리자 사이트 이동 아이콘">
+    </a>
+  </div>
+</header>
+<!-- // Header -->
+
+<script>
+  $('.btn_login_modal').on('click', function () {
+    $('.login_body').toggleClass('on');
+  })
+</script>
+  <!-- Contents -->
+  <div class="contents platform">
+    <div class="flex_wrap">
+      <div class="stat_snb_wrap">
+        <ul class="stat_snb">
+          <li><a href="#" class="on">온도</a></li>
+          <li><a href="#">습도</a></li>
+          <li><a href="#">이산화탄소</a></li>
+          <li><a href="#">변위</a></li>
+          <li><a href="#">열</a></li>
+          <li><a href="#">기침</a></li>
+          <li><a href="#">바이러스</a></li>
+          <li><a href="#">경보</a></li>
+        </ul>
+      </div>
+      <div class="stat_tab_wrap">
+        <h2 class="tit02_h2">온도통계</h2>
+        <div class="box">
+          <div class="tab box_tab">
+            <ul class="tab_list">
+              <li><a href="#tab01" class="on">연간</a></li>
+              <li><a href="#tab02">월별</a></li>
+              <li><a href="#tab03">주별</a></li>
+            </ul>
+          </div>
+          <div class="tab_conts">
+            <div id="tab01" class="tab_cont">
+              <div>
+                <div class="standard_wrap">
+                  <ul class="search f_sb">
+                    <li>
+                      <span class="period period_multi">
+                        <input type="text" id="date_timepicker_start" class="input_calendar" value="YYYY/MM/DD"
+                  placeholder="기간 시작일 선택" title="기간 시작일 선택">
+                        <input type="text" id="date_timepicker_end" class="input_calendar" value="YYYY/MM/DD"
+                    placeholder="기간 종료일 선택" title="기간 종료일 선택">
+                      </span>
+                      <button type="button" class="btn_m btn_gray">검색</button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn_m btn_greenline">엑셀저장</button>
+                    </li>
+                  </ul>
+                </div>
+                <table class="tbl_stat tbl_com">
+                  <caption>사망인원 기준 통계</caption>
+                  <thead>
+                    <tr>
+                      <th>분석지표</th>
+                      <th>구분</th>
+                      <th>2020</th>
+                      <th>2021</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td rowspan="2">실내온도</td>
+                      <td>이상치</td>
+                      <td>232.035</td>
+                      <td>220.917</td>
+                    </tr>
+                    <tr>
+                      <td>연평군</td>
+                      <td>635.7</td>
+                      <td>603.5</td>
+                    </tr>
+                    <tr>
+                      <td rowspan="2">실외온도</td>
+                      <td>이상치</td>
+                      <td>232.035</td>
+                      <td>220.917</td>
+                    </tr>
+                    <tr>
+                      <td>연평군</td>
+                      <td>635.7</td>
+                      <td>603.5</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div class="stat_chart_wrap flex_wrap">
+                  <h4>온도 통계  차트</h4>
+                  <ul class="flex_wrap">
+                    <li>
+                      <input type="radio" id="option_bar" name="option_chart" checked style="position:relative;top:-2px;">
+                      <label for="option_bar">막대</label>
+                    </li>
+                    <li>
+                      <input type="radio" id="option_pie" name="option_chart" style="position:relative;top:-2px;">
+                      <label for="option_pie">원형</label>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="flex_wrap f_sb">
+                    <canvas id="chart1_3" style="width:100%;height:250px;"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="tab02" class="tab_cont">
+            </div>
+            <div id="tab03" class="tab_cont">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer flex_wrap f_sb">
+  <div class="flex_wrap">
+    <img src="../../images/ico_call.png" style="height:23px;align-self:center;" alt="플랫폼 관리자 연락처 아이콘">
+    <span>플랫폼 관리자  02-2624-3555</span>
+  </div>
+  <copy>Copyright &copy; 2023 . All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+</body>
+
+
+<script>
+  // chart1-3
+  // value top
+  function valueTop() {
+    var chartInstance = this.chart,
+      ctx = chartInstance.ctx;
+    ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+
+    this.data.datasets.forEach(function (dataset, i) {
+      var meta = chartInstance.controller.getDatasetMeta(i);
+      meta.data.forEach(function (bar, index) {
+        var data = dataset.data[index];
+        ctx.fillText(data, bar._model.x, bar._model.y + 0);
+      });
+    });
+  }
+  Chart.Legend.prototype.afterFit = function () {
+    this.height = this.height + 40;
+  };
+
+  var ctx1_3 = document.getElementById('chart1_3').getContext('2d');
+  new Chart(ctx1_3, {
+    type: 'bar',
+    data: {
+      labels: ['2020년', '2021년'],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#02a0aa',
+        borderRadius: Number.MAX_VALUE,
+        borderSkipped: false,
+        data: [1675, 1767]
+      }, {
+        label: '2020년',
+        backgroundColor: '#02bbc7',
+        borderRadius: Number.MAX_VALUE,
+        borderSkipped: false,
+        data: [1487, 1682]
+      }, {
+        label: '2021년',
+        backgroundColor: '#4dd2db',
+        borderRadius: Number.MAX_VALUE,
+        borderSkipped: false,
+        data: [1302, 1532]
+      }, {
+        label: '2021년',
+        backgroundColor: '#9ae4e9',
+        borderRadius: Number.MAX_VALUE,
+        borderSkipped: false,
+        data: [1302, 1532]
+      }, {
+        label: '2021년',
+        backgroundColor: '#c6eaec',
+        borderRadius: Number.MAX_VALUE,
+        borderSkipped: false,
+        data: [1302, 1532]
+      }]
+    },
+    options: {
+      responsive: false,
+      scales: {
+        xAxes: [{
+          barPercentage: .2,
+        }],
+        yAxes: [{
+          ticks: {
+            display: false,
+            beginAtZero: true
+          },
+        }]
+      },
+      legend: {
+        display: false
+      },
+      animation: {
+        animateScale: true,
+        animateRotate: true,
+        duration: 1
+      },
+      cornerRadius: 40,
+      events: false,
+      hover: {
+        animationDuration: 0
+      }
+    }
+  });
+</script>
+</html>

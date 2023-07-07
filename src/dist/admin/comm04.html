@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감염병 위험도 플랫폼</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../../js/Chart.bundle.js"></script>
+  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../../js/file_attach.js"></script>
+  <script src="../../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header class="admin">
+  <h1 class="logo">
+    <a href="service01.html">
+      <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
+    </a>
+  </h1>
+  <ul class="gnb flex_wrap" role="navigation">
+    <li>
+      <a class="on" href="service01.html">서비스 현황</a>
+    </li>
+    <li>
+      <a href="notice01.html">게시판</a>
+      <ul class="sub">
+        <li><a href="notice01.html">공지사항</a></li>
+        <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="comm01.html">관리자 지원</a>
+      <ul class="sub">
+        <li><a href="comm01.html">공용코드 관리</a></li>
+        <li><a href="comm02.html">사용자 관리</a></li>
+        <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+        <li><a href="comm04.html">시설물 관리</a></li>
+      </ul>
+    </li>
+  </ul>
+  <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+    <span>모니터링사이트</span>
+    <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+  </a>
+</header>
+<!-- // Header -->
+
+<script>
+  $('.btn_login_modal').on('click', function () {
+    $('.login_body').toggleClass('on');
+  })
+</script>
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">시설물 관리</h2>
+      <div>
+        <div>
+          <div class="standard_wrap">
+            <ul class="search f_sb">
+              <li>
+                <select name="" id="">
+                  <option value="설치지역">설치지역</option>
+                </select>
+                <select name="" id="">
+                  <option value="시설물종류">시설물종류</option>
+                </select>
+                <select name="" id="">
+                  <option value="운영상태">운영상태</option>
+                </select>
+                <button type="button" class="font_b btn_m btn_orange">검색</button>
+              </li>
+              <li>
+                <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
+              </li>
+            </ul>
+          </div>
+          <div class="tbl_wrap">
+            <table id="treegrid" class="jq-grid"></table>
+            <div id="gridpager"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer flex_wrap f_sb">
+  <div class="flex_wrap">
+    <img src="../../images/ico_call.png" style="height:23px;align-self:center;" alt="플랫폼 관리자 연락처 아이콘">
+    <span>플랫폼 관리자  02-2624-3555</span>
+  </div>
+  <copy>Copyright &copy; 2023 . All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+  <!-- 시설물 상세정보 센서 추가 팝업 -->
+  <div id="popAddSenser" class="pop_overlay" style="display:none;">
+    <div class="pop_wrap p_fever">
+      <div class="pop_tit">
+        <h1>시설물 상세정보/센서 추가</h1>
+        <button type="button" class="btn_pop_close" closePop></button>
+      </div>
+      <div class="pop_body">
+        <div class="section">
+          <div class="recorder_sensor" role="acc">
+            <!-- 기록계 -->
+            <div class="recorder" style="margin-bottom:20px;">
+              <h4>시설물 공통정보</h4>
+              <div>
+                <table class="tbl_row" style="margin-bottom:25px;">
+                  <caption>시설물 관리 상세 테이블</caption>
+                  <colgroup>
+                    <col style="width:20%;">
+                    <col style="width:30%;">
+                    <col style="width:20%;">
+                    <col style="width:30%;">
+                  </colgroup>
+                  <tr>
+                    <th scope="row">설치 지역</th>
+                    <td>
+                      <select name="" id="">
+                        <option value=""></option>
+                      </select>
+                    </td>
+                    <th scope="row">운영상태</th>
+                    <td>
+                      <select name="" id="">
+                        <option value=""></option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">시설물 명</th>
+                    <td>
+                      <input type="text">
+                    </td>
+                    <th scope="row">시설물 코드</th>
+                    <td>
+                      <input type="text">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">시설물 종류</th>
+                    <td>
+                      <select name="" id="">
+                        <option value=""></option>
+                      </select>
+                    </td>
+                    <th scope="row">위 &sol; 경도</th>
+                    <td>
+                      <span class="flex_wrap f_sb">
+                        <input type="text" style="width:49%;">
+                        <input type="text" style="width:49.5%;">
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">운영시작일</th>
+                    <td>
+                      <input type="text" id="date_timepicker_start" class="input_calendar" value="YYYY/MM/DD"
+                        placeholder="기간 시작일 선택" title="기간 시작일 선택">
+                    </td>
+                    <th scope="row">운영종료일</th>
+                    <td>
+                      <input type="text" id="date_timepicker_end" class="input_calendar" value="YYYY/MM/DD"
+                        placeholder="기간 종료일 선택" title="기간 종료일 선택">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">설치 위치</th>
+                    <td colspan="3">
+                      <input type="text">
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">시설물 주소</th>
+                    <td colspan="3">
+                      <span class="flex_wrap">
+                        <select name="" id="" style="width:auto">
+                          <option value="경상남도">경상남도</option>
+                        </select>
+                        <select name="" id="" style="width:auto">
+                          <option value="상주시">상주시</option>
+                        </select>
+                        <input type="text" style="width:100%;">
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">비고</th>
+                    <td colspan="3">
+                      <input type="text">
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="recorder_sensor" role="acc">
+            <!-- 기록계 -->
+            <div class="recorder" style="margin-bottom:35px;">
+              <h4>장비 및 센서정보</h4>
+              <div>
+                <table id="treegrid2"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn_wrap alignC">
+        <button type="button" class="btn_m btn_blue">수정</button>
+        <button type="button" class="btn_m btn_gray">목록</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--// 시설물 상세정보 센서 추가 팝업 -->
+  <script>
+    $('#btnAddSenser').on('click',function () {
+      $('#popAddSenser').show();
+
+      $("#treegrid2").jqGrid({
+        datatype:'local',
+        data:myGridData,
+        colNames:['지역코드','시설물ID','시설명','시설종류','센서수량','운영시작일','운영종료일','운영상태','상세보기'],
+        colModel:[
+          { name:'code',align:'center' },
+          { name:'idname',align:'center' },
+          { name:'name',align:'center' },
+          { name:'type',align:'center' },
+          { name:'length',align:'center' },
+          { name:'datestart',align:'center' },
+          { name:'dateend',align:'center' },
+          { name:'state',align:'center' },
+          { name:'detail',align:'center',formatter:tblBtn },
+        ],
+        subGrid:true,
+        height:200,
+        autowidth:true,
+        subGridRowExpanded:function (subgridDivId,rowId) {
+          var subgridTableId = subgridDivId + "_t";
+          $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
+          $("#" + subgridTableId).jqGrid({
+            datatype:'local',
+            data:mySubgrids[rowId],
+            autowidth:false,
+            height:150,
+            colNames:['장비ID','장비구분','제조사','모델명','Serial','설치일자','비고','운영상태'],
+            colModel:[
+              { name:'idname',width:100 },
+              { name:'type',width:100 },
+              { name:'made',width:100 },
+              { name:'name',width:100 },
+              { name:'serial',width:100 },
+              { name:'date',width:100 },
+              { name:'etc',width:100 },
+              { name:'state',width:100 }
+            ],
+          });
+        }
+      });
+
+      function jqgridInit() {
+        $('.jq-grid').each(function () {
+          $(this).setGridWidth($(this).parents('.tbl_wrap').width() - 2);
+        });
+      }
+      $(window).on('resize',function () {
+        jqgridInit();
+      });
+    })
+  </script>
+
+  <script>
+    var mydata = [
+      { id:"m1",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
+      { id:"m2",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
+      { id:"m3",지역코드:"경기 남양주시",시설물ID:"2",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
+      { id:"m4",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
+    ],
+      mySubgrids = {
+        m1:[
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" }
+        ],
+        m2:[
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
+          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" }
+        ]
+      };
+
+    $("#treegrid").jqGrid({
+      data:mydata,
+      datatype:"local",
+      colNames:["지역코드","시설물ID"," 시설명","시설종류","센서수량","운영시작일","운영종료일","운영상태","상세보기"],
+      colModel:[
+        { name:'지역코드',editable:true },
+        { name:'시설물ID',editable:true },
+        { name:'시설명',editable:true },
+        { name:'시설종류',editable:true },
+        { name:'센서수량',editable:true },
+        { name:'운영시작일',editable:true },
+        { name:'운영종료일',editable:true },
+        { name:'운영상태',editable:true },
+        { name:'상세보기',editable:false }
+      ],
+      pager:'#gridpager',
+      autowidth:true,
+      height:480,
+      'cellsubmit':'clientArray',
+      editurl:'clientArray',
+      subGrid:true,
+      subGridRowExpanded:function (subgridDivId,rowId) {
+        var subgridTableId = subgridDivId + "_t";
+        $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
+        $("#" + subgridTableId).jqGrid({
+          datatype:'local',
+          data:mySubgrids[rowId],
+          autowidth:true,
+          height:160,
+          colNames:['장비ID','장비구분','제조사','모델명','Serial','설치일자','비고','운영상태'],
+          colModel:[
+            { name:'idname',width:100 },
+            { name:'type',width:100 },
+            { name:'made',width:100 },
+            { name:'name',width:100 },
+            { name:'serial',width:100 },
+            { name:'date',width:100 },
+            { name:'etc',width:100 },
+            { name:'state',width:100 }
+          ],
+        })
+      }
+    });
+    $("#treegrid").navGrid("#gridpager",{ edit:false,add:false,del:true });
+    $("#treegrid").jqGrid('inlineNav',"#gridpager");
+
+    function jqgridInit() {
+      $('.jq-grid').each(function () {
+        $(this).setGridWidth($(this).parents('.tbl_wrap').width() - 2);
+      });
+    }
+    $(window).on('resize',function () {
+      jqgridInit();
+    });
+  </script>
+</body>
+
+</html>

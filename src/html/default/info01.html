@@ -1,0 +1,263 @@
+@@include('../inc/top.html')
+<body>
+  @@include('../inc/header.html')
+  <!-- Contents -->
+  <div class="contents platform">
+    <div class="flex_wrap f_sb">
+      <div class="monitoring_wrap">
+        <div class="tit_box">
+          <h2 class="tit02_h2">모니터링 [프로그램실]</h2>
+          <ul class="switch">
+            <li class="on"><a href="#">사람</a></li>
+            <li><a href="#">동물</a></li>
+          </ul>
+        </div>
+        <div class="box">
+          <div class="drawarea_wrap">
+            <div id="models"><canvas></canvas></div>
+            <div class="legend">
+              <img src="../../images/img_sensor_legend.png" alt="범례">
+            </div>
+          </div>
+        </div>
+        <div class="chart_wrap box">
+          <ul>
+            <li>
+              <h3 class="tit02_h3">온도 [TEMPERATURE]</h3>
+              <div>
+                <canvas id="chart1_1"></canvas>
+              </div>
+            </li>
+            <li>
+              <h3 class="tit02_h3">습도 [HUMIDITY]</h3>
+              <div>
+                <canvas id="chart1_2"></canvas>
+              </div>
+            </li>
+            <li>
+              <h3 class="tit02_h3">이산화탄소 [CO2]</h3>
+              <div>
+                <canvas id="chart1_3"></canvas>
+              </div>
+            </li>
+          </ul>
+        </div>          
+      </div>
+      <div class="situchart_wrap">
+        <div class="situation_wrap box">
+          <h3 class="tit02_h3">연계상황</h3>
+          <ul>
+            <li>
+              <h4>환경센서</h4>
+              <span class="state01">안전</span>
+            </li>
+            <li>
+              <h4>KMA API</h4>
+              <span class="state01">안전</span>
+            </li>
+            <li>
+              <h4>i-watcher</h4>
+              <span class="state03">심각</span>
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <ul class="info_wrap">
+            <li>
+              <div class="tit_info_wrap flex_wrap f_sb">
+                <div class="flex_wrap">
+                  <h3 class="tit03_h3">발열</h3>
+                  <p class="as_c">
+                    <span class="font_b">2명</span> /
+                    <span>2명</span>
+                  </p>
+                </div>
+                <a href="#" class="more as_c" onclick="return false;" id="btnPopFever"></a>
+              </div>
+            </li>
+            <li>
+              <div class="tit_info_wrap flex_wrap f_sb">
+                <div class="flex_wrap">
+                  <h3 class="tit03_h3">기침</h3>
+                  <p class="as_c">
+                    <span class="font_b">2명</span> /
+                    <span>2명</span>
+                  </p>
+                </div>
+                <a href="#" class="more as_c"></a>
+              </div>
+              <div class="chart_wrap">
+                <canvas id="chart0_1"></canvas>
+              </div>
+            </li>
+            <li>
+              <div class="tit_info_wrap flex_wrap f_sb">
+                <div class="flex_wrap">
+                  <h3 class="tit03_h3">변위</h3>
+                  <p class="as_c">
+                    <span class="font_b">2명</span> /
+                    <span>2명</span>
+                  </p>
+                </div>
+                <a href="#" class="more as_c"></a>
+              </div>
+              <div class="chart_wrap">
+                <canvas id="chart0_1"></canvas>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- // Contents -->
+  @@include('../inc/footer.html')
+  @@include('../pop/popFever.html');   
+
+
+</body>
+
+
+<script>
+  // chart0-1
+  var ctx0_1 = document.getElementById('chart0_1').getContext('2d');
+  new Chart(ctx0_1, {
+    type: 'line',
+    data: {
+      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [0, 0, 0, 0, 2, 0, 0, 0]
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: false
+      }
+    }
+  });
+</script>
+
+<script>
+  // chart0-2
+  var ctx0_2 = document.getElementById('chart0_2').getContext('2d');
+  new Chart(ctx0_2, {
+    type: 'line',
+    data: {
+      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [0, 0, 0, 0, 2, 0, 0, 0]
+      }
+      ]
+    },
+    options: {
+      maintainAspectRatio : false,
+      responsive: false,
+      plugins: {
+        legend: false
+      }
+    }
+  });
+</script>
+
+<script>
+  // chart1-1
+  var ctx1_1 = document.getElementById('chart1_1').getContext('2d');
+  new Chart(ctx1_1, {
+    type: 'line',
+    data: {
+      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
+      },
+      {
+        label: '2019년',
+        backgroundColor: '#3476d080',
+        borderSkipped: false,
+        data: [514, 177, 566, 54, 160, 240, 160, 1540]
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: false
+      }
+    }
+  });
+</script>
+
+<script>
+  // chart1-2
+  var ctx1_2 = document.getElementById('chart1_2').getContext('2d');
+  new Chart(ctx1_2, {
+    type: 'line',
+    data: {
+      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
+      },
+      {
+        label: '2019년',
+        backgroundColor: '#3476d080',
+        borderSkipped: false,
+        data: [514, 177, 566, 54, 160, 240, 160, 1540]
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: false
+      }
+    }
+  });
+</script>
+
+<script>
+  // chart1-3
+  var ctx1_3 = document.getElementById('chart1_3').getContext('2d');
+  new Chart(ctx1_3, {
+    type: 'line',
+    data: {
+      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
+      }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: false
+      }
+    }
+  });
+</script>
+
+<script>
+  $('#btnPopVirus').on('click', function () {
+    $('#popVirus').show();
+  })
+  $('#btnPopFever').on('click', function () {
+    $('#popFever').show();
+  })
+</script>
+
+</html>

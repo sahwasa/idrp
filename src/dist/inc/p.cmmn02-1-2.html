@@ -1,0 +1,70 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_cmmn02_1_2">
+    <div class="pop_tit">
+      <h1>내정보</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <colgroup>
+              <col style="width:30%;">
+              <col style="width:55%;">
+              <col style="width:15%;">
+          </colgroup>
+          <caption>내정보</caption>
+          <tr>
+            <th><label for="id">ID</label></th>
+            <td colspan="2" class="alignL">admin</td>
+          </tr>
+          <tr>
+            <th scope="row"><label for="pw">비밀번호</label></th>
+            <td><input type="password" id="pw" value="************" disabled></td>
+            <td><button type="button" class="btn_m btn_gray">변경</button></td>
+          </tr>
+          <tr>
+            <th><label for="name">이름</label></th>
+            <td colspan="2"><input type="text" id="name"></td>
+          </tr>
+          <tr>
+            <th><label for="division">소속기관</label></th>
+            <td colspan="2" class="alignL">경남도청</td>
+          </tr>
+          <tr>
+            <th><label for="team">부서 / 직급</label></th>
+            <td colspan="2">
+              <span class="flex_wrap f_sb input_50">
+                <input type="text" id="team" placeholder="부서"> /
+                <input type="text" id="position" placeholder="직급">
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <th rowspan="2"><label for="number">연락처</label></th>
+            <td colspan="2" class="number">
+              <input type="text" id="number" placeholder="부서전화">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="phonenumber">
+              <input type="text" id="phonenumber" placeholder="휴대전화">
+            </td>
+          </tr>
+          <tr>
+            <th><label for="authority">권한</label></th>
+            <td colspan="2">
+              <select name="authority" title="authority">
+                <option value="">권한선택</option>
+                <option value="">사용자</option>
+                <option value="">관리자</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn_m btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감염병 위험도 플랫폼</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+  <script src="../../js/Chart.bundle.js"></script>
+  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+  <script src="../../js/file_attach.js"></script>
+  <script src="../../js/ui_common.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+<header class="admin">
+  <h1 class="logo">
+    <a href="service01.html">
+      <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
+    </a>
+  </h1>
+  <ul class="gnb flex_wrap" role="navigation">
+    <li>
+      <a class="on" href="service01.html">서비스 현황</a>
+    </li>
+    <li>
+      <a href="notice01.html">게시판</a>
+      <ul class="sub">
+        <li><a href="notice01.html">공지사항</a></li>
+        <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="comm01.html">관리자 지원</a>
+      <ul class="sub">
+        <li><a href="comm01.html">공용코드 관리</a></li>
+        <li><a href="comm02.html">사용자 관리</a></li>
+        <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+        <li><a href="comm04.html">시설물 관리</a></li>
+      </ul>
+    </li>
+  </ul>
+  <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+    <span>모니터링사이트</span>
+    <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+  </a>
+</header>
+<!-- // Header -->
+
+<script>
+  $('.btn_login_modal').on('click', function () {
+    $('.login_body').toggleClass('on');
+  })
+</script>
+  <!-- Contents -->
+  <div class="contents snb_wrap">
+    <div class="con_l con_main">
+      <div class="tab_style02">
+        <div class="tab box_tab">
+          <ul class="tab_list">
+            <li><a href="#tab01" class="on">지역별</a></li>
+            <li><a href="#tab02">상호명</a></li>
+          </ul>
+        </div>
+        <div class="tab_conts">
+          <div id="tab01" class="tab_cont">
+            <ul class="accident_sort_wrap">
+              <li>
+                <select name="" id="">
+                  <option value="시도">시도</option>
+                  <option value="시도">시도</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" placeholder="검색어">
+              </li>
+              <li class="alignC">
+                <button type="button" class="btn_l btn_blue">검색</button>
+              </li>
+            </ul>
+            <div class="slide_main monitoring">
+              <div class="accident_top sort_wrap flex_wrap">
+                <span>장소별</span>
+                <span>주소</span>
+                <span>상호명</span>
+              </div>
+              <ul class="accident_wrap">
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep02.png" alt="주의 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep03.png" alt="심각 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="tab02" class="tab_cont" style="display: none;">
+          </div>
+        </div>
+        <div style="position:absolute;bottom:15px;left:410px;">
+          <img src="../images/img-legend.png" alt="범례">
+        </div>
+      </div>
+      <div class="btn_slide"></div>
+    </div>
+    <div class="con">
+      <div id="draggable">
+        <div style="position:absolute;top:30%;left:50%;z-index:9990;">
+          <img src="../images/ico_riskstep01.png" alt="위험구역 정상 아이콘">
+        </div>
+        <div style="position:absolute;top:30%;left:60%;z-index:9990;">
+          <img src="../images/ico_riskstep02.png" alt="위험구역 주의 아이콘">
+        </div>
+        <div style="position:absolute;top:30%;left:70%;z-index:9990;">
+          <img src="../images/ico_riskstep03.png" alt="위험구역 심각 아이콘">
+        </div>
+        <img src="../images/img_bg_main.png" alt="임시 배경">
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer flex_wrap f_sb">
+  <div class="flex_wrap">
+    <img src="../../images/ico_call.png" style="height:23px;align-self:center;" alt="플랫폼 관리자 연락처 아이콘">
+    <span>플랫폼 관리자  02-2624-3555</span>
+  </div>
+  <copy>Copyright &copy; 2023 . All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+
+</body>
+
+<script>
+  // main : slide & drag
+  $('.btn_slide').on('click', function () {
+    $('.con_l').toggleClass('close');
+  })
+</script>
+
+</html>

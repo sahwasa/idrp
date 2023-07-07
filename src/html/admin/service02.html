@@ -1,0 +1,104 @@
+@@include('../inc/top.html')
+
+<body>
+  @@include('../inc/admin_header.html')
+  <!-- Contents -->
+  <div class="contents snb_wrap">
+    <div class="con_l con_main">
+      <div class="tab_style02">
+        <div class="tab box_tab">
+          <ul class="tab_list">
+            <li><a href="#tab01" class="on">지역별</a></li>
+            <li><a href="#tab02">상호명</a></li>
+          </ul>
+        </div>
+        <div class="tab_conts">
+          <div id="tab01" class="tab_cont">
+            <ul class="accident_sort_wrap">
+              <li>
+                <select name="" id="">
+                  <option value="시도">시도</option>
+                  <option value="시도">시도</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" placeholder="검색어">
+              </li>
+              <li class="alignC">
+                <button type="button" class="btn_l btn_blue">검색</button>
+              </li>
+            </ul>
+            <div class="slide_main monitoring">
+              <div class="accident_top sort_wrap flex_wrap">
+                <span>장소별</span>
+                <span>주소</span>
+                <span>상호명</span>
+              </div>
+              <ul class="accident_wrap">
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep02.png" alt="주의 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="a_c">
+                    <img src="../images/img_riskstep03.png" alt="심각 아이콘">
+                  </div>
+                  <ul class="accident_detail a_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="tab02" class="tab_cont" style="display: none;">
+          </div>
+        </div>
+        <div style="position:absolute;bottom:15px;left:410px;">
+          <img src="../images/img-legend.png" alt="범례">
+        </div>
+      </div>
+      <div class="btn_slide"></div>
+    </div>
+    <div class="con">
+      <div id="draggable">
+        <div style="position:absolute;top:30%;left:50%;z-index:9990;">
+          <img src="../images/ico_riskstep01.png" alt="위험구역 정상 아이콘">
+        </div>
+        <div style="position:absolute;top:30%;left:60%;z-index:9990;">
+          <img src="../images/ico_riskstep02.png" alt="위험구역 주의 아이콘">
+        </div>
+        <div style="position:absolute;top:30%;left:70%;z-index:9990;">
+          <img src="../images/ico_riskstep03.png" alt="위험구역 심각 아이콘">
+        </div>
+        <img src="../images/img_bg_main.png" alt="임시 배경">
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  @@include('../inc/footer.html')
+
+</body>
+
+<script>
+  // main : slide & drag
+  $('.btn_slide').on('click', function () {
+    $('.con_l').toggleClass('close');
+  })
+</script>
+
+</html>

@@ -1,0 +1,62 @@
+<div class="pop_overlay">
+  <div class="pop_wrap p_admin02_1">
+    <div class="pop_tit">
+      <h1>코드 수정</h1>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_info">
+          <caption>코드 수정</caption>
+          <tr>
+            <th scope="row"><label for="group_code">그룹코드</label></th>
+            <td class="alignL"><span>C00</span></td>
+          </tr>
+          <tr>
+            <th><label for="code">코드</label></th>
+            <td colspan="2"><input type="text" id="code"></td>
+          </tr>
+          <tr>
+            <th><label for="code_name">코드명</label></th>
+            <td colspan="2"><input type="text" id="code_name"></td>
+          </tr>
+          <tr>
+            <th><label for="code_expl">코드 설명</label></th>
+            <td colspan="2"><input type="text" id="code_expl"></td>
+          </tr>
+          <tr>
+            <th><label for="order_number">순번</label></th>
+            <td colspan="2">
+              <select name="order_number" title="order_number">
+                <option value="16">16</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="usage">사용여부</label></th>
+            <td colspan="2" class="alignL">
+              <span datavalue="on" class="btn_toggle"></span>
+            </td>
+          </tr>
+        </table>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn_m btn_blue">저장</button>
+          <button type="button" class="btn_m btn_gray">닫기</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // toggle button
+  $('.btn_toggle').on('click', function (e) {
+    e.preventDefault();
+    var cur = $(this).attr('datavalue');
+    if ($(this).attr('disabled') == 'disabled') return false;
+    if (cur == 'on') {
+      $(this).attr('datavalue', 'off');
+    } else {
+      $(this).attr('datavalue', 'on');
+    }
+  })
+</script>
