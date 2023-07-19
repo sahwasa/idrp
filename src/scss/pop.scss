@@ -61,6 +61,9 @@
     .tbl_tit{margin-bottom:10px;}
     .tbl_num.font_black td{color:#000;font-family:'notokrDM';}
     .tbl_num td{width:35px !important;height:30px !important;padding:0 !important;text-align:center;border-width:1px !important;border-color:#f1f1f1 !important;}
+    .input_50{
+      &>*{flex:1;}
+    }
 }
 
 // 반응형 임시
