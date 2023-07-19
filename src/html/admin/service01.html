@@ -4,12 +4,11 @@
   @@include('../inc/admin_header.html')
   <!-- Contents -->
   <div class="contents snb_wrap">
-    <div class="con_l con_main">
+    <div class="con_l con_main close">
       <div class="tab_style02">
         <div class="tab box_tab">
           <ul class="tab_list">
             <li><a href="#tab01" class="on">지역별</a></li>
-            <li><a href="#tab02">상호명</a></li>
           </ul>
         </div>
         <div class="tab_conts">
@@ -46,6 +45,33 @@
                 </li>
                 <li class="flex_wrap">
                   <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
                     <img src="../../images/img_riskstep02.png" alt="주의 아이콘">
                   </div>
                   <ul class="accident_detail as_c">
@@ -68,7 +94,7 @@
           <div id="tab02" class="tab_cont" style="display: none;">
           </div>
         </div>
-        <div style="position:absolute;bottom:15px;left:410px;">
+        <div style="position:absolute;bottom:15px;left:calc(100% + 15px);">
           <img src="../../images/img_map_legend.png" alt="범례">
         </div>
       </div>
@@ -76,6 +102,38 @@
     </div>
     <div class="con">
       <div id="draggable">
+        <div class="spot_map_info" style="position:absolute;top:10%;left:50%;z-index:9991;">
+          <div class="img_map_info">
+            <img src="../../images/img_spot_placeholder.png" alt="아델라 실버 케어 요양병원 임시 이미지">
+          </div>
+            <div class="con_map_info">
+              <div class="tit_map_info">
+                <h4>아델라 실버 케어 요양병원</h4>
+                <p>경기도 양주시 장흥면 호국로 407-25</p>
+              </div>
+
+              <div class="flex_wrap f_sb">
+                <dl>
+                  <dt>환경센서1</dt>
+                  <dd class="state02">주의</dd>
+                  <dt>환경센서2</dt>
+                  <dd class="state01">안전</dd>
+                  <dt>환경센서3</dt>
+                  <dd class="state01">안전</dd>
+                </dl>
+                <dl>
+                  <dt>발열</dt>
+                  <dd class="state02">측정중</dd>
+                  <dt>기침</dt>
+                  <dd class="state00">측정중</dd>
+                  <dt>변위</dt>
+                  <dd class="state00">미설치</dd>
+                  <dt>바이러스</dt>
+                  <dd class="state02">측정중</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
         <div style="position:absolute;top:30%;left:50%;z-index:9990;">
           <img src="../../images/ico_riskstep01.png" alt="위험구역 정상 아이콘">
         </div>
@@ -90,7 +148,7 @@
     </div>
   </div>
   <!-- // Contents -->
-  @@include('../inc/footer.html')
+  @@include('../inc/footer.html')@@include('../inc/script.html')
 
 </body>
 

@@ -10,32 +10,20 @@
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
   <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
   <link rel="stylesheet" href="../../css/merge.css">
-
-  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
-  <script src="../../js/Chart.bundle.js"></script>
-  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
-  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
-  <script src="../../js/file_attach.js"></script>
-  <script src="../../js/ui_common.js"></script>
 </head>
 
 <body>
   <!-- Header -->
-<header class="admin">
+<header class="admin f_sb ai_c">
   <h1 class="logo">
     <a href="service01.html">
       <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
     </a>
   </h1>
-  <ul class="gnb flex_wrap" role="navigation">
-    <li>
-      <a class="on" href="service01.html">서비스 현황</a>
-    </li>
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
+    <li><a class="on" href="service01.html">서비스 현황</a></li>
     <li>
       <a href="notice01.html">게시판</a>
       <ul class="sub">
@@ -50,29 +38,56 @@
         <li><a href="comm02.html">사용자 관리</a></li>
         <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
         <li><a href="comm04.html">시설물 관리</a></li>
+        <li><a href="comm05.html">감염병 알림 서비스</a></li>
       </ul>
     </li>
+    <li><a href="compare01.html">통합 비교</a></li>
   </ul>
-  <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-    <span>모니터링사이트</span>
-    <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
-  </a>
+  <div>
+    <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+      <span>모니터링사이트</span>
+      <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+    </a>
+    <div class="m_con">
+      <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+      <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+        <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+          <span>모니터링 사이트로 이동하기</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+        <ul class="m_gnb m_con" role="navigation">
+          <li><a class="on" href="service01.html">서비스 현황</a></li>
+          <li>
+            <a href="notice01.html">게시판</a>
+            <ul class="sub">
+              <li><a href="notice01.html">공지사항</a></li>
+              <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="comm01.html">관리자 지원</a>
+            <ul class="sub">
+              <li><a href="comm01.html">공용코드 관리</a></li>
+              <li><a href="comm02.html">사용자 관리</a></li>
+              <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+              <li><a href="comm04.html">시설물 관리</a></li>
+              <li><a href="comm05.html">감염병 알림 서비스</a></li>
+            </ul>
+          </li>
+          <li><a href="compare01.html">통합 비교</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
 <!-- // Header -->
-
-<script>
-  $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
-  })
-</script>
   <!-- Contents -->
   <div class="contents snb_wrap">
-    <div class="con_l con_main">
+    <div class="con_l con_main close">
       <div class="tab_style02">
         <div class="tab box_tab">
           <ul class="tab_list">
             <li><a href="#tab01" class="on">지역별</a></li>
-            <li><a href="#tab02">상호명</a></li>
           </ul>
         </div>
         <div class="tab_conts">
@@ -109,6 +124,33 @@
                 </li>
                 <li class="flex_wrap">
                   <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
+                    <img src="../../images/img_riskstep01.png" alt="안전 아이콘">
+                  </div>
+                  <ul class="accident_detail as_c">
+                    <li>벌말 선착장</li>
+                    <li>충청남도 서산시</li>
+                  </ul>
+                </li>
+                <li class="flex_wrap">
+                  <div class="as_c">
                     <img src="../../images/img_riskstep02.png" alt="주의 아이콘">
                   </div>
                   <ul class="accident_detail as_c">
@@ -131,7 +173,7 @@
           <div id="tab02" class="tab_cont" style="display: none;">
           </div>
         </div>
-        <div style="position:absolute;bottom:15px;left:410px;">
+        <div style="position:absolute;bottom:15px;left:calc(100% + 15px);">
           <img src="../../images/img_map_legend.png" alt="범례">
         </div>
       </div>
@@ -139,6 +181,38 @@
     </div>
     <div class="con">
       <div id="draggable">
+        <div class="spot_map_info" style="position:absolute;top:10%;left:50%;z-index:9991;">
+          <div class="img_map_info">
+            <img src="../../images/img_spot_placeholder.png" alt="아델라 실버 케어 요양병원 임시 이미지">
+          </div>
+            <div class="con_map_info">
+              <div class="tit_map_info">
+                <h4>아델라 실버 케어 요양병원</h4>
+                <p>경기도 양주시 장흥면 호국로 407-25</p>
+              </div>
+
+              <div class="flex_wrap f_sb">
+                <dl>
+                  <dt>환경센서1</dt>
+                  <dd class="state02">주의</dd>
+                  <dt>환경센서2</dt>
+                  <dd class="state01">안전</dd>
+                  <dt>환경센서3</dt>
+                  <dd class="state01">안전</dd>
+                </dl>
+                <dl>
+                  <dt>발열</dt>
+                  <dd class="state02">측정중</dd>
+                  <dt>기침</dt>
+                  <dd class="state00">측정중</dd>
+                  <dt>변위</dt>
+                  <dd class="state00">미설치</dd>
+                  <dt>바이러스</dt>
+                  <dd class="state02">측정중</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
         <div style="position:absolute;top:30%;left:50%;z-index:9990;">
           <img src="../../images/ico_riskstep01.png" alt="위험구역 정상 아이콘">
         </div>
@@ -161,7 +235,17 @@
   </div>
   <copy>Copyright &copy; 2023 . All rights reserved.</copy>
 </div>
-<!-- // Footer -->
+<!-- // Footer --><script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
 
 </body>
 

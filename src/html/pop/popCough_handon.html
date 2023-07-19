@@ -1,0 +1,73 @@
+<!-- 기침 팝업 -->
+<div id="popCoughHandon" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_fever">
+    <div class="pop_tit">
+      <div class="flex_wrap ai_c">
+        <h1>기침 i-watcher</h1>
+        <span class="tit_date">2023년 06월 19일</span>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <table class="tbl_row tbl_tit">
+          <caption>기침 정보 제목 테이블</caption>
+          <colgroup>
+            <col style="width:40%;">
+            <col style="width:60%;">
+          </colgroup>
+          <tr>
+            <th scope="row">i-watcher 정보</th>
+            <td class="alignC">ID name</td>
+          </tr>
+        </table>
+        <div class="tbl_wrap">
+          <table id="jqGridPopCoughHandon" class="jq-grid"></table>
+        </div>
+        <div class="box" style="width:100%;height:191px;">
+          <canvas id="chartPopCoughHandon"></canvas>
+        </div>
+        <div class="btn_wrap alignR">
+          <button type="button" class="btn_m btn_greenline">엑셀 저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침 팝업 -->
+
+<script>
+  // table data
+  var data01 = [
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
+    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" }
+  ]
+  $("#jqGridPopCoughHandon").jqGrid({
+    data: data01,
+    datatype: "local",
+    colModel: [
+      { label: '측정시간', name: 'd0', align: 'center' },
+      { label: '측정단계', name: 'd1', align: 'center' },
+      { label: '기침 수', name: 'd2', align: 'center' },
+      { label: '정상 &sol; 이상', name: 'd3', align: 'center' },
+      { label: '촬영사진', name: 'd4', align: 'center', formatter: btnMore },
+    ],
+    height: 240,
+    rowTotal: -1,
+    rownumbers: true,
+    jsonReader: { repeatitems: false },
+    shrinkToFit: true,
+    autoWidth: true
+  })
+  function btnMore(cellvalue) {
+    var str = "";
+    str += "<button type='button' class='btn_m btn_blue' onclick='showPopImgDetail()'>" + cellvalue + "</button>";
+    return str;
+  }
+  jqgridInit();
+</script>

@@ -1,0 +1,68 @@
+<!-- 기침_한돈 팝업 -->
+<div id="popSpectrum" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_spectrum">
+    <div class="pop_tit">
+      <div>
+        <h1>촬영시간</h1>
+        <h3 class="tit03_h3 alignC">hh:mm</h3>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <div class="spectrum_wrap">
+          <img src="../../images/test_image_1.jpg">
+        </div>
+        <div class="spectrum_wrap"></div> <!-- 이미지 없는 경우 -->
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침_한돈 팝업 -->
+
+<script>
+  $('#btnPopSpectrum').on('click', function () {
+    $('#popSpectrum').show();
+  })
+
+  // chart0-3(기침)
+  var ctx = document.getElementById('chart0_3').getContext('2d');
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      label: '막대형',
+      data: [10, 15, 7, 12, 9],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      type: 'bar'
+    }, {
+      label: '꺾은선형',
+      data: [8, 10, 6, 9, 7],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132, 1)',
+      pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+      pointBorderColor: 'rgba(255, 99, 132, 1)',
+      pointRadius: 5,
+      type: 'line'
+    }]
+  };
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    legend: {
+      position: 'top',
+      align: 'end'
+    }
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script>

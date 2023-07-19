@@ -10,32 +10,20 @@
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
   <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
   <link rel="stylesheet" href="../../css/merge.css">
-
-  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
-  <script src="../../js/Chart.bundle.js"></script>
-  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
-  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
-  <script src="../../js/file_attach.js"></script>
-  <script src="../../js/ui_common.js"></script>
 </head>
 
 <body>
   <!-- Header -->
-<header class="admin">
+<header class="admin f_sb ai_c">
   <h1 class="logo">
     <a href="service01.html">
       <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
     </a>
   </h1>
-  <ul class="gnb flex_wrap" role="navigation">
-    <li>
-      <a class="on" href="service01.html">서비스 현황</a>
-    </li>
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
+    <li><a class="on" href="service01.html">서비스 현황</a></li>
     <li>
       <a href="notice01.html">게시판</a>
       <ul class="sub">
@@ -50,21 +38,49 @@
         <li><a href="comm02.html">사용자 관리</a></li>
         <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
         <li><a href="comm04.html">시설물 관리</a></li>
+        <li><a href="comm05.html">감염병 알림 서비스</a></li>
       </ul>
     </li>
+    <li><a href="compare01.html">통합 비교</a></li>
   </ul>
-  <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-    <span>모니터링사이트</span>
-    <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
-  </a>
+  <div>
+    <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+      <span>모니터링사이트</span>
+      <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+    </a>
+    <div class="m_con">
+      <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+      <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+        <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+          <span>모니터링 사이트로 이동하기</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+        <ul class="m_gnb m_con" role="navigation">
+          <li><a class="on" href="service01.html">서비스 현황</a></li>
+          <li>
+            <a href="notice01.html">게시판</a>
+            <ul class="sub">
+              <li><a href="notice01.html">공지사항</a></li>
+              <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="comm01.html">관리자 지원</a>
+            <ul class="sub">
+              <li><a href="comm01.html">공용코드 관리</a></li>
+              <li><a href="comm02.html">사용자 관리</a></li>
+              <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+              <li><a href="comm04.html">시설물 관리</a></li>
+              <li><a href="comm05.html">감염병 알림 서비스</a></li>
+            </ul>
+          </li>
+          <li><a href="compare01.html">통합 비교</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
 <!-- // Header -->
-
-<script>
-  $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
-  })
-</script>
   <!-- Contents -->
   <div class="contents wrap">
     <div class="notice_area">
@@ -121,7 +137,17 @@
   </div>
   <copy>Copyright &copy; 2023 . All rights reserved.</copy>
 </div>
-<!-- // Footer -->
+<!-- // Footer --><script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
 
 
 </body>

@@ -1,0 +1,74 @@
+<!-- 기침 팝업 -->
+<div id="popTemplate" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_template">
+    <div class="pop_tit">
+      <div class="flex_wrap ai_c">
+        <h1>템플릿 수정</h1>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <div class="alarm_tem">
+          <div class="flex_wrap ai_ f_sb">
+            <label for="sel_template"><b>템플릿 명</b></label>
+            <select name="select template" id="sel_template">
+              <option value="선택">선택</option>
+              <option value="주의" selected>주의</option>
+            </select>
+          </div>
+          <div class="alarm_txt">
+            <textarea title="전송 내용 텍스트 박스">기침⸱호흡곤란 등 이상증상 위험이 있으니 실내 환기, 손씻기 등 위생관리 철저로 건강관리에 유의하기 바랍니다.</textarea>
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침 팝업 -->
+
+<script>
+  // chart0-3(기침)
+  var ctx = document.getElementById('chart0_3').getContext('2d');
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      label: '막대형',
+      data: [10, 15, 7, 12, 9],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      type: 'bar'
+    }, {
+      label: '꺾은선형',
+      data: [8, 10, 6, 9, 7],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132, 1)',
+      pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+      pointBorderColor: 'rgba(255, 99, 132, 1)',
+      pointRadius: 5,
+      type: 'line'
+    }]
+  };
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    legend: {
+      position: 'top',
+      align: 'end'
+    }
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script>

@@ -1,4 +1,5 @@
 @@include('../inc/top.html')
+
 <body>
   @@include('../inc/header.html')
   <!-- Contents -->
@@ -7,16 +8,57 @@
       <div class="monitoring_wrap">
         <div class="tit_box">
           <h2 class="tit02_h2">모니터링 [프로그램실]</h2>
-          <ul class="switch">
-            <li class="on"><a href="#">사람</a></li>
-            <li><a href="#">동물</a></li>
-          </ul>
         </div>
         <div class="box">
-          <div class="drawarea_wrap">
-            <div id="models"><canvas></canvas></div>
-            <div class="legend">
-              <img src="../../images/img_sensor_legend.png" alt="범례">
+          <div class="drawarea_wrap state02">
+            <div id="models"></div>
+            <div class="slideshow_wrap btn_arrow_v">
+              <button id="btn3d" class="btn_3d btn btn_mint">초기화</button>
+              <div class="slider slider-for">
+                <div>
+                  <img src="../../images/test_image_1.jpg">
+                </div>
+                <div>
+                  <img src="../../images/test_image_2.jpg">
+                </div>
+                <div>
+                  <img src="../../images/test_image_3.jpg">
+                </div>
+                <div>
+                  <img src="../../images/test_image_4.jpg">
+                </div>
+                <div>
+                  <img src="../../images/test_image_5.jpg">
+                </div>
+                <div>
+                  <img src="../../images/test_image_6.jpg">
+                </div>
+              </div>
+              <div>
+                <div class="slider slider-nav">
+                  <div>
+                    <img src="../../images/test_image_1.jpg">
+                  </div>
+                  <div>
+                    <img src="../../images/test_image_2.jpg">
+                  </div>
+                  <div>
+                    <img src="../../images/test_image_3.jpg">
+                  </div>
+                  <div>
+                    <img src="../../images/test_image_4.jpg">
+                  </div>
+                  <div>
+                    <img src="../../images/test_image_5.jpg">
+                  </div>
+                  <div>
+                    <img src="../../images/test_image_6.jpg">
+                  </div>
+                </div>
+                <ul class="legend">
+                  <img src="../../images/img_sensor_legend.png" alt="범례">
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -25,39 +67,75 @@
             <li>
               <h3 class="tit02_h3">온도 [TEMPERATURE]</h3>
               <div>
-                <canvas id="chart1_1"></canvas>
+                <canvas id="chartTemperature" height="100"></canvas>
               </div>
             </li>
             <li>
               <h3 class="tit02_h3">습도 [HUMIDITY]</h3>
               <div>
-                <canvas id="chart1_2"></canvas>
+                <canvas id="chartHumidity"></canvas>
               </div>
             </li>
             <li>
               <h3 class="tit02_h3">이산화탄소 [CO2]</h3>
               <div>
-                <canvas id="chart1_3"></canvas>
+                <canvas id="chartCo2"></canvas>
               </div>
             </li>
           </ul>
-        </div>          
+        </div>
       </div>
       <div class="situchart_wrap">
         <div class="situation_wrap box">
           <h3 class="tit02_h3">연계상황</h3>
-          <ul>
-            <li>
-              <h4>환경센서</h4>
-              <span class="state01">안전</span>
-            </li>
-            <li>
-              <h4>KMA API</h4>
-              <span class="state01">안전</span>
-            </li>
+          <ul class="situation_link">
             <li>
               <h4>i-watcher</h4>
               <span class="state03">심각</span>
+              <div class="pop_overlay spot_map_info">
+                <div class="con_map_info">
+                  <div class="flex_wrap f_sb">
+                    <h4>i-watcher 정보</h4>
+                    <button type="button" class="btn_pop_close" closepop></button>
+                  </div>
+                  <div class="flex_wrap f_sb">
+                    <dl>
+                      <dt>환경센서1</dt>
+                      <dd class="state02">주의</dd>
+                      <dt>환경센서2</dt>
+                      <dd class="state01">안전</dd>
+                      <dt>환경센서3</dt>
+                      <dd class="state01">안전</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <h4>KMA API</h4>
+              <span class="state03">심각</span>
+            </li>
+            <li>
+              <h4>환경센서</h4>
+              <span class="state01">안전</span>
+              <div class="pop_overlay spot_map_info">
+                <div class="con_map_info">
+                  <div class="flex_wrap f_sb">
+                    <h4>환경센서 정보</h4>
+                    <button type="button" class="btn_pop_close" closepop></button>
+                  </div>
+                  <div class="flex_wrap f_sb">
+                    <dl>
+                      <dt>환경센서1</dt>
+                      <dd class="state02">주의</dd>
+                      <dt>환경센서2</dt>
+                      <dd class="state01">안전</dd>
+                      <dt>환경센서3</dt>
+                      <dd class="state01">안전</dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -68,11 +146,13 @@
                 <div class="flex_wrap">
                   <h3 class="tit03_h3">발열</h3>
                   <p class="as_c">
-                    <span class="font_b">2명</span> /
-                    <span>2명</span>
+                    <span class="font_b">2명</span> /<span>2명</span>
                   </p>
                 </div>
-                <a href="#" class="more as_c" onclick="return false;" id="btnPopFever"></a>
+                <a href="#" class="more as_c" onclick="showPopFever()">발열 팝업</a>
+              </div>
+              <div class="chart_wrap">
+                <canvas id="chartFever"></canvas>
               </div>
             </li>
             <li>
@@ -84,180 +164,281 @@
                     <span>2명</span>
                   </p>
                 </div>
-                <a href="#" class="more as_c"></a>
+                <a href="#" class="more as_c" onclick="showPopCough()">기침 팝업</a>
               </div>
-              <div class="chart_wrap">
-                <canvas id="chart0_1"></canvas>
-              </div>
+              <div class="chart_wrap"></div>
             </li>
             <li>
               <div class="tit_info_wrap flex_wrap f_sb">
                 <div class="flex_wrap">
                   <h3 class="tit03_h3">변위</h3>
                   <p class="as_c">
-                    <span class="font_b">2명</span> /
-                    <span>2명</span>
+                    <span class="font_b">2명</span> /<span>2명</span>
                   </p>
                 </div>
-                <a href="#" class="more as_c"></a>
+                <a href="#" class="more as_c" onclick="showPopDisplace()">변위 팝업</a>
               </div>
-              <div class="chart_wrap">
-                <canvas id="chart0_1"></canvas>
-              </div>
+              <div class="chart_wrap"></div>
             </li>
           </ul>
         </div>
       </div>
     </div>
   </div>
-<!-- // Contents -->
+  <!-- // Contents -->
   @@include('../inc/footer.html')
-  @@include('../pop/popFever.html');   
+  @@include('../inc/script.html')
+  @@include('../pop/popFever.html') <!-- 발열 팝업 -->
+  @@include('../pop/popImgDetail.html') <!-- 발열_촬영사진 팝업 -->
+  @@include('../pop/popCough.html') <!-- 기침 팝업 -->
+  @@include('../pop/popDisplace.html') <!-- 변위 팝업 -->
+
+  <script>
+    // 데이터
+    // 차트
+    var chartData = {
+      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
+      datasets: [
+        {
+          label: '2019년',
+          backgroundColor: '#30c1b75c',
+          borderSkipped: false,
+          data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
+        },
+        {
+          label: '2019년',
+          backgroundColor: '#3476d080',
+          borderSkipped: false,
+          data: [514, 177, 566, 54, 160, 240, 160, 1540]
+        }]
+    };
+    var chartOption = {
+      layout: {
+        padding: {
+          top: 20
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: false
+      }
+    };
+    var chartDataDual = {
+      labels: ['A', 'B', 'C', 'D', 'E'],
+      datasets: [{
+        label: '막대형',
+        data: [10, 15, 7, 12, 9],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1,
+        type: 'bar'
+      }, {
+        label: '꺾은선형',
+        data: [8, 10, 6, 9, 7],
+        fill: false,
+        borderColor: 'rgba(255, 99, 132, 1)',
+        pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+        pointBorderColor: 'rgba(255, 99, 132, 1)',
+        pointRadius: 5,
+        type: 'line'
+      }]
+    };
+    var chartOptionDual = {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      legend: {
+        position: 'top',
+        align: 'end'
+      }
+    };
+    // 그리드
+    var gridData = [
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
+      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" }
+    ]
+    var mydata = [
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { rowspan: "4" }}},
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { rowspan: "4" }}},
+    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}}
+    ],
+      arrtSetting = function (rowId, val, rawObject, cm) {
+        var attr = rawObject.attr[cm.name], result;
+        if (attr.rowspan) {
+          result = ' rowspan=' + '"' + attr.rowspan + '"';
+        } else if (attr.display) {
+          result = ' style="display:' + attr.display + '"';
+        }
+        return result;
+      };
 
 
+    // 함수
+    // 팝업
+    function showPopCough() {
+      $('#popCough').show();
+      imgSlide();
+    }
+    function showPopDisplace() {
+      $('#popDisplace').show();
+      jqgridInit();
+      rowSpanTdSet();
+    }
+    function showPopImgDetail() {
+      $('#popImgDetail').show();
+    }
+    function showPopFever() {
+      $('#popFever').show();
+      jqgridInit();
+    }
+    // 연계상황 레이어 팝업
+    function showPopOverlay() {
+      $(this).find('.pop_overlay').show();
+    }
+    function hidePopOverlay(e) {
+      e.stopPropagation();
+      $(this).parents('.pop_overlay').hide();
+    }
+    $(".situation_link li").on('click', showPopOverlay);
+    $(".situation_link li .btn_pop_close").on('click', hidePopOverlay);
+
+    // 차트
+    function createChart(ctx, type) {
+      return new Chart(ctx, {
+        type: type,
+        data: chartData,
+        options: chartOption
+      });
+    }
+    function createChartDual(ctx) {
+      return new Chart(ctx, {
+        type: 'bar',
+        data: chartDataDual,
+        options: chartOptionDual
+      });
+    }
+
+    // 그리드 내 버튼
+    function btnMore(cellvalue) {
+      var str = "";
+      str += "<button type='button' class='btn_m btn_blue' onclick='showPopImgDetail()'>" + cellvalue + "</button>";
+      return str;
+    }
+    // 병합 셀 스타일 적용
+    function rowSpanTdSet(){
+      var mergedCells = document.querySelectorAll('td[rowspan]');
+        mergedCells.forEach(function (cell) {
+          // 병합된 셀에 스타일 적용
+          cell.classList.add('absorption');
+        });
+    }
+
+
+
+    // 이미지 슬라이더
+    function imgSlide() {
+      // 기침 팝업 내 이미지 슬라이더
+      $(".slideshow_wrap.regular").slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 960,
+            settings: {
+              slidesToShow: 2
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1
+            }
+          }
+        ]
+      });
+    }
+
+
+    // 공간정보 모니터링 이미지 슬라이더
+    $('.slider-for').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      fade: true,
+      asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.slider-for',
+      centerMode: true,
+      focusOnSelect: true,
+      vertical: true
+    });
+
+    // 차트
+    createChart(document.getElementById('chartFever').getContext('2d'), 'line');
+    createChart(document.getElementById('chartTemperature').getContext('2d'), 'line');
+    createChart(document.getElementById('chartHumidity').getContext('2d'), 'line');
+    createChart(document.getElementById('chartCo2').getContext('2d'), 'line');
+    createChart(document.getElementById('chartPopFever').getContext('2d'), 'line');
+    createChartDual(document.getElementById('chartPopCough').getContext('2d'));
+
+    // 그리드
+    $("#jqGridPopFever").jqGrid({
+      data: gridData,
+      datatype: "local",
+      colModel: [
+        { label: '측정시간', name: 'd0', align: 'center' },
+        { label: '이상징후', name: 'd1', align: 'center' },
+        { label: '발열온도', name: 'd2', align: 'center' },
+        { label: '촬영사진', name: 'd3', align: 'center', formatter: btnMore },
+      ],
+      height: 240,
+      rowTotal: -1,
+      rownumbers: true,
+      jsonReader: { repeatitems: false },
+      shrinkToFit: true,
+      autoWidth: true
+    })
+    jqgridInit();
+
+    $("#jqGridPopDisplace").jqGrid({
+      data: mydata,
+      datatype: "local",
+      colModel: [
+        {label: ' ', name: 'd0', align: 'center', cellattr: arrtSetting },
+        {label: ' ', name: 'd1', align: 'center'},
+        {label: ' ', name: 'd2', align: 'center'},
+        {label: ' ', name: 'd3', align: 'center'},
+        {label: ' ', name: 'd4', align: 'center'}
+      ],
+      height: 400,
+      rowTotal: -1,
+      rownumbers: true,
+      jsonReader: { repeatitems: false },
+      shrinkToFit: true,
+      autoWidth: true,
+      beforeSelectRow: function () {
+        rowSpanTdSet()
+      }
+    })
+    jqgridInit();
+  </script>
 </body>
-
-
-<script>
-  // chart0-1
-  var ctx0_1 = document.getElementById('chart0_1').getContext('2d');
-  new Chart(ctx0_1, {
-    type: 'line',
-    data: {
-      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [0, 0, 0, 0, 2, 0, 0, 0]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart0-2
-  var ctx0_2 = document.getElementById('chart0_2').getContext('2d');
-  new Chart(ctx0_2, {
-    type: 'line',
-    data: {
-      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [0, 0, 0, 0, 2, 0, 0, 0]
-      }
-      ]
-    },
-    options: {
-      maintainAspectRatio : false,
-      responsive: false,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-1
-  var ctx1_1 = document.getElementById('chart1_1').getContext('2d');
-  new Chart(ctx1_1, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      },
-      {
-        label: '2019년',
-        backgroundColor: '#3476d080',
-        borderSkipped: false,
-        data: [514, 177, 566, 54, 160, 240, 160, 1540]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-2
-  var ctx1_2 = document.getElementById('chart1_2').getContext('2d');
-  new Chart(ctx1_2, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      },
-      {
-        label: '2019년',
-        backgroundColor: '#3476d080',
-        borderSkipped: false,
-        data: [514, 177, 566, 54, 160, 240, 160, 1540]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-3
-  var ctx1_3 = document.getElementById('chart1_3').getContext('2d');
-  new Chart(ctx1_3, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  $('#btnPopVirus').on('click', function () {
-    $('#popVirus').show();
-  })
-  $('#btnPopFever').on('click', function () {
-    $('#popFever').show();
-  })
-</script>
 
 </html>

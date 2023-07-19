@@ -1,0 +1,100 @@
+<!-- 기침 팝업 -->
+<div id="popSelectPoint" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_select_point">
+    <div class="pop_tit">
+      <div class="flex_wrap ai_c">
+        <h1>지점 선택</h1>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <ul class="con_detail_group">
+          <li>
+            <input type="checkbox" id="con_detail_1">
+            <label for="con_detail_1">케이아이티밸리</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_2" checked>
+            <label for="con_detail_2">고길동</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_3">
+            <label for="con_detail_3">뽀로로</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_4" checked>
+            <label for="con_detail_4">신짱구</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_5">
+            <label for="con_detail_5">피카츄</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_6" checked>
+            <label for="con_detail_6">뿡뿡이</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_7" checked>
+            <label for="con_detail_7">호빵맨</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_8">
+            <label for="con_detail_8">스누피</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_9">
+            <label for="con_detail_9">노진구</label>
+          </li>
+        </ul>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">완료</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침 팝업 -->
+
+<script>
+  // chart0-3(기침)
+  var ctx = document.getElementById('chart0_3').getContext('2d');
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      label: '막대형',
+      data: [10, 15, 7, 12, 9],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      type: 'bar'
+    }, {
+      label: '꺾은선형',
+      data: [8, 10, 6, 9, 7],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132, 1)',
+      pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+      pointBorderColor: 'rgba(255, 99, 132, 1)',
+      pointRadius: 5,
+      type: 'line'
+    }]
+  };
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    legend: {
+      position: 'top',
+      align: 'end'
+    }
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script>

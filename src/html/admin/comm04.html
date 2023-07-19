@@ -9,23 +9,29 @@
       <div>
         <div>
           <div class="standard_wrap">
-            <ul class="search f_sb">
+            <ul class="search">
               <li>
-                <select name="" id="">
+                <select title="설치지역 선택">
                   <option value="설치지역">설치지역</option>
                 </select>
-                <select name="" id="">
-                  <option value="시설물종류">시설물종류</option>
-                </select>
-                <select name="" id="">
-                  <option value="운영상태">운영상태</option>
-                </select>
-                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
               <li>
-                <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
+                <select title="시설물종류 선택">
+                  <option value="시설물종류">시설물종류</option>
+                </select>
+              </li>
+              <li>
+                <select title="운영상태 선택">
+                  <option value="운영상태">운영상태</option>
+                </select>
+              </li>
+              <li class="btn_wrap">
+                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
             </ul>
+          </div>
+          <div class="tbl_top alignR">
+            <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
           </div>
           <div class="tbl_wrap">
             <table id="treegrid" class="jq-grid"></table>
@@ -38,7 +44,7 @@
 
   </div>
   <!-- // Contents -->
-  @@include('../inc/footer.html')
+  @@include('../inc/footer.html')@@include('../inc/script.html')
 
   <!-- 시설물 상세정보 센서 추가 팝업 -->
   <div id="popAddSenser" class="pop_overlay" style="display:none;">
@@ -65,13 +71,13 @@
                   <tr>
                     <th scope="row">설치 지역</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
                     <th scope="row">운영상태</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
@@ -89,7 +95,7 @@
                   <tr>
                     <th scope="row">시설물 종류</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
@@ -123,10 +129,10 @@
                     <th scope="row">시설물 주소</th>
                     <td colspan="3">
                       <span class="flex_wrap">
-                        <select name="" id="" style="width:auto">
+                        <select style="width:auto">
                           <option value="경상남도">경상남도</option>
                         </select>
-                        <select name="" id="" style="width:auto">
+                        <select style="width:auto">
                           <option value="상주시">상주시</option>
                         </select>
                         <input type="text" style="width:100%;">

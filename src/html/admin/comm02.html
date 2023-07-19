@@ -9,24 +9,30 @@
       <div>
         <div>
           <div class="standard_wrap">
-            <ul class="search f_sb">
+            <ul class="search">
               <li>
-                <select name="" id="">
+                <select title="부서 선택">
                   <option value="부서 선택">부서 선택</option>
                 </select>
-                <select name="" id="">
-                  <option value="검색조건">검색조건</option>
-                </select>
-                <input type="text" id="danger_name" placeholder="검색어를 입력하세요">
-                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
               <li>
-                <button type="button" class="font_b btn_m btn_blue">추가</button>
-                <button type="button" class="font_b btn_m btn_lightgray">삭제</button>
+                <select title="검색조건 입력">
+                  <option value="검색조건">검색조건</option>
+                </select>
+              </li>
+              <li>
+                <input type="text" id="danger_name" placeholder="검색어를 입력하세요">
+              </li>
+              <li class="btn_wrap">
+                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
             </ul>
           </div>
           <div class="tbl_user">
+            <div class="tbl_top alignR">
+              <button type="button" class="font_b btn_m btn_blue">추가</button>
+              <button type="button" class="font_b btn_m btn_lightgray">삭제</button>
+            </div>
             <table class="tbl_com">
               <caption>공지사항</caption>
               <colgroup>
@@ -203,12 +209,9 @@
       </div>
     </div>
   </div>
-
-  </div>
   <!-- // Contents -->
   @@include('../inc/footer.html')
-
-
+  @@include('../inc/script.html')
 </body>
 
 </html>

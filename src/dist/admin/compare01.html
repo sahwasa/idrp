@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감염병 위험도 플랫폼</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+
+<body>
+  <!-- Header -->
+<header class="admin f_sb ai_c">
+  <h1 class="logo">
+    <a href="service01.html">
+      <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
+    </a>
+  </h1>
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
+    <li><a class="on" href="service01.html">서비스 현황</a></li>
+    <li>
+      <a href="notice01.html">게시판</a>
+      <ul class="sub">
+        <li><a href="notice01.html">공지사항</a></li>
+        <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="comm01.html">관리자 지원</a>
+      <ul class="sub">
+        <li><a href="comm01.html">공용코드 관리</a></li>
+        <li><a href="comm02.html">사용자 관리</a></li>
+        <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+        <li><a href="comm04.html">시설물 관리</a></li>
+        <li><a href="comm05.html">감염병 알림 서비스</a></li>
+      </ul>
+    </li>
+    <li><a href="compare01.html">통합 비교</a></li>
+  </ul>
+  <div>
+    <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+      <span>모니터링사이트</span>
+      <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+    </a>
+    <div class="m_con">
+      <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+      <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+        <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+          <span>모니터링 사이트로 이동하기</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+        <ul class="m_gnb m_con" role="navigation">
+          <li><a class="on" href="service01.html">서비스 현황</a></li>
+          <li>
+            <a href="notice01.html">게시판</a>
+            <ul class="sub">
+              <li><a href="notice01.html">공지사항</a></li>
+              <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="comm01.html">관리자 지원</a>
+            <ul class="sub">
+              <li><a href="comm01.html">공용코드 관리</a></li>
+              <li><a href="comm02.html">사용자 관리</a></li>
+              <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+              <li><a href="comm04.html">시설물 관리</a></li>
+              <li><a href="comm05.html">감염병 알림 서비스</a></li>
+            </ul>
+          </li>
+          <li><a href="compare01.html">통합 비교</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- // Header -->
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">감염병 알림 서비스</h2>
+      <div class="compare_wrap">
+        <ul class="search f_sb">
+          <li>
+            <label for="">분류</label>
+            <select name="" id="">
+              <option value="선택">선택</option>
+              <option value="i-Watcher">i-Watcher</option>
+              <option value="환경센서" selected>환경센서</option>
+            </select>
+          </li>
+          <li>
+            <label for="">분류</label>
+            <select name="" id="">
+              <option value="선택">선택</option>
+              <option value="발열(발열자 수)">발열(발열자 수)</option>
+              <option value="기침(기침자 수)">기침(기침자 수)</option>
+              <option value="바이러스(양성 횟수)">바이러스(양성 횟수)</option>
+              <option value="온도">온도</option>
+              <option value="습도">습도</option>
+              <option value="이산화탄소 농도" selected>이산화탄소 농도</option>
+            </select>
+          </li>
+          <li>
+            <label for="chart_type">형태</label>
+            <span>
+              <ul class="search_type flex_wrap ai_c">
+                <li>
+                  <input type="radio" id="chart_pie" name="chart_type">
+                  <label for="chart_pie">원형</label>
+                </li>
+                <li>
+                  <input type="radio" id="chart_graph" name="chart_type" checked>
+                  <label for="chart_graph">그래프</label>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <label for="">조건</label>
+            <span>
+              <ul class="condition_date">
+                <li>
+                  <input type="checkbox" id="condition_month">
+                  <label for="condition_month">월</label>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                  <span>~</span>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                </li>
+                <li>
+                  <input type="checkbox" id="condition_day">
+                  <label for="condition_day">일</label>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                  <span>~</span>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <label>
+              <span>지점</span>
+              <button type="button" class="btn btn_s btn_blue btn_add_point btnSelectPoint">선택</button>
+            </label>
+            <span>
+              <ul class="selectlist_wrap flex_wrap">
+                <li><span>케이아이티밸리</span><i class="axi axi-close"></i></li>
+                <li><span>뽀로로</span><i class="axi axi-close"></i></li>
+                <li><span>신짱구</span><i class="axi axi-close"></i></li>
+                <li><span>피카츄</span><i class="axi axi-close"></i></li>
+                <li><span>스누피</span><i class="axi axi-close"></i></li>
+                <li><span>한돈혁신센터</span><i class="axi axi-close"></i></li>
+              </ul>
+            </span>
+          </li>
+        </ul>
+        <div class="alignC">
+          <button type="button" class="font_b btn_l btn_orange">검색</button>
+        </div>
+      </div>
+      <div class="box" style="height:500px;">
+        <div class="btn_wrap alignR">
+          <button type="button" class="btn_m btn_greenline">엑셀 저장</button>
+        </div>
+        <canvas id="chart01"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer flex_wrap f_sb">
+  <div class="flex_wrap">
+    <img src="../../images/ico_call.png" style="height:23px;align-self:center;" alt="플랫폼 관리자 연락처 아이콘">
+    <span>플랫폼 관리자  02-2624-3555</span>
+  </div>
+  <copy>Copyright &copy; 2023 . All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
+  <!-- 기침 팝업 -->
+<div id="popSelectPoint" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_select_point">
+    <div class="pop_tit">
+      <div class="flex_wrap ai_c">
+        <h1>지점 선택</h1>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <ul class="con_detail_group">
+          <li>
+            <input type="checkbox" id="con_detail_1">
+            <label for="con_detail_1">케이아이티밸리</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_2" checked>
+            <label for="con_detail_2">고길동</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_3">
+            <label for="con_detail_3">뽀로로</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_4" checked>
+            <label for="con_detail_4">신짱구</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_5">
+            <label for="con_detail_5">피카츄</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_6" checked>
+            <label for="con_detail_6">뿡뿡이</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_7" checked>
+            <label for="con_detail_7">호빵맨</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_8">
+            <label for="con_detail_8">스누피</label>
+          </li>
+          <li>
+            <input type="checkbox" id="con_detail_9">
+            <label for="con_detail_9">노진구</label>
+          </li>
+        </ul>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">완료</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침 팝업 -->
+
+<script>
+  // chart0-3(기침)
+  var ctx = document.getElementById('chart0_3').getContext('2d');
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      label: '막대형',
+      data: [10, 15, 7, 12, 9],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      type: 'bar'
+    }, {
+      label: '꺾은선형',
+      data: [8, 10, 6, 9, 7],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132, 1)',
+      pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+      pointBorderColor: 'rgba(255, 99, 132, 1)',
+      pointRadius: 5,
+      type: 'line'
+    }]
+  };
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    legend: {
+      position: 'top',
+      align: 'end'
+    }
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script> <!-- 지점 선택 팝업 -->
+
+  <script>
+    $('.btnSelectPoint').on('click', function () {
+      $('#popSelectPoint').show();
+    })
+
+    // chart
+    var ctx01 = document.getElementById('chart01').getContext('2d');
+    new Chart(ctx01, {
+      type: 'line',
+      data: {
+        labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
+        datasets: [{
+          label: '2019년',
+          backgroundColor: '#30c1b75c',
+          borderSkipped: false,
+          data: [0, 0, 0, 0, 2, 0, 0, 0]
+        }
+        ]
+      },
+      options: {
+        layout: {
+          padding: {
+            top: 20
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top', // 범례 위치 설정
+            align: 'center', // 범례 가운데 정렬 설정
+          }
+        }
+      }
+    });
+
+    // 대상 삭제
+    $(".selectlist_wrap i").on('click', function () {
+      $(this).parent('li').remove();
+      fn_checkPeople();
+    })
+  </script>
+</body>
+
+</html>

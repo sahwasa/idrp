@@ -1,0 +1,153 @@
+@@include('../inc/top.html')
+
+<body>
+  @@include('../inc/admin_header.html')
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">감염병 알림 서비스</h2>
+      <div class="compare_wrap">
+        <ul class="search f_sb">
+          <li>
+            <label for="">분류</label>
+            <select name="" id="">
+              <option value="선택">선택</option>
+              <option value="i-Watcher">i-Watcher</option>
+              <option value="환경센서" selected>환경센서</option>
+            </select>
+          </li>
+          <li>
+            <label for="">분류</label>
+            <select name="" id="">
+              <option value="선택">선택</option>
+              <option value="발열(발열자 수)">발열(발열자 수)</option>
+              <option value="기침(기침자 수)">기침(기침자 수)</option>
+              <option value="바이러스(양성 횟수)">바이러스(양성 횟수)</option>
+              <option value="온도">온도</option>
+              <option value="습도">습도</option>
+              <option value="이산화탄소 농도" selected>이산화탄소 농도</option>
+            </select>
+          </li>
+          <li>
+            <label for="chart_type">형태</label>
+            <span>
+              <ul class="search_type flex_wrap ai_c">
+                <li>
+                  <input type="radio" id="chart_pie" name="chart_type">
+                  <label for="chart_pie">원형</label>
+                </li>
+                <li>
+                  <input type="radio" id="chart_graph" name="chart_type" checked>
+                  <label for="chart_graph">그래프</label>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <label for="">조건</label>
+            <span>
+              <ul class="condition_date">
+                <li>
+                  <input type="checkbox" id="condition_month">
+                  <label for="condition_month">월</label>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                  <span>~</span>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                </li>
+                <li>
+                  <input type="checkbox" id="condition_day">
+                  <label for="condition_day">일</label>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                  <span>~</span>
+                  <select name="">
+                    <option value="선택">선택</option>
+                  </select>
+                </li>
+              </ul>
+            </span>
+          </li>
+          <li>
+            <label>
+              <span>지점</span>
+              <button type="button" class="btn btn_s btn_blue btn_add_point btnSelectPoint">선택</button>
+            </label>
+            <span>
+              <ul class="selectlist_wrap flex_wrap">
+                <li><span>케이아이티밸리</span><i class="axi axi-close"></i></li>
+                <li><span>뽀로로</span><i class="axi axi-close"></i></li>
+                <li><span>신짱구</span><i class="axi axi-close"></i></li>
+                <li><span>피카츄</span><i class="axi axi-close"></i></li>
+                <li><span>스누피</span><i class="axi axi-close"></i></li>
+                <li><span>한돈혁신센터</span><i class="axi axi-close"></i></li>
+              </ul>
+            </span>
+          </li>
+        </ul>
+        <div class="alignC">
+          <button type="button" class="font_b btn_l btn_orange">검색</button>
+        </div>
+      </div>
+      <div class="box" style="height:500px;">
+        <div class="btn_wrap alignR">
+          <button type="button" class="btn_m btn_greenline">엑셀 저장</button>
+        </div>
+        <canvas id="chart01"></canvas>
+      </div>
+    </div>
+  </div>
+  <!-- // Contents -->
+  @@include('../inc/footer.html')
+  @@include('../inc/script.html')
+  @@include('../pop/popSelectPoint.html') <!-- 지점 선택 팝업 -->
+
+  <script>
+    $('.btnSelectPoint').on('click', function () {
+      $('#popSelectPoint').show();
+    })
+
+    // chart
+    var ctx01 = document.getElementById('chart01').getContext('2d');
+    new Chart(ctx01, {
+      type: 'line',
+      data: {
+        labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
+        datasets: [{
+          label: '2019년',
+          backgroundColor: '#30c1b75c',
+          borderSkipped: false,
+          data: [0, 0, 0, 0, 2, 0, 0, 0]
+        }
+        ]
+      },
+      options: {
+        layout: {
+          padding: {
+            top: 20
+          }
+        },
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top', // 범례 위치 설정
+            align: 'center', // 범례 가운데 정렬 설정
+          }
+        }
+      }
+    });
+
+    // 대상 삭제
+    $(".selectlist_wrap i").on('click', function () {
+      $(this).parent('li').remove();
+      fn_checkPeople();
+    })
+  </script>
+</body>
+
+</html>

@@ -10,28 +10,19 @@
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
   <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
   <link rel="stylesheet" href="../../css/merge.css">
-
-  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
-  <script src="../../js/Chart.bundle.js"></script>
-  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
-  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
-  <script src="../../js/file_attach.js"></script>
-  <script src="../../js/ui_common.js"></script>
 </head>
+
 <body>
   <!-- Header -->
-<header>
+<header class="flex_wrap f_sb">
   <h1 class="logo">
     <a href="info01.html">
       <img src="../../images/img_h1_title.png" alt="감염병 위험도 플랫폼">
     </a>
   </h1>
-  <ul class="gnb flex_wrap" role="navigation">
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
     <li>
       <a class="on" href="info01.html">공간정보 모니터링</a>
     </li>
@@ -39,7 +30,7 @@
       <a href="virus01.html">바이러스 모니터링</a>
     </li>
     <li>
-      <a href="stat01.html">공간정보 통계</a>
+      <a href="stat01.html">공간정보 통계분석</a>
       <ul class="sub">
         <li><a href="stat01.html">온도</a></li>
         <li><a href="#">습도</a></li>
@@ -52,7 +43,42 @@
       </ul>
     </li>
   </ul>
-  <div class="flex_wrap">
+  <div class="m_con">
+    <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+    <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+      <div class="util_wrap flex_wrap f_sb ai_c">
+        <ul class="ai_c">
+          <li>
+            <span><b>관리자</b>님</span>
+            <span><a href="#" class="util user">내정보</a></span>
+          </li>
+          <li><a href="#" class="util log">로그인&sol;로그아웃</a></li>
+        </ul>
+        <a onclick="location.href='../admin/service01.html'" href="#" class="link flex_wrap ai_c">
+          <span>모니터링 사이트</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+      </div>
+      <ul class="m_gnb m_con" role="navigation">
+        <li><a class="on" href="info01.html">공간정보 모니터링</a></li>
+        <li><a href="virus01.html">바이러스 모니터링</a></li>
+        <li>
+          <a href="#">공간정보 통계분석</a>
+          <ul class="sub">
+            <li><a href="stat01.html">온도</a></li>
+            <li><a href="#">습도</a></li>
+            <li><a href="#">이산화탄소</a></li>
+            <li><a href="#">변위</a></li>
+            <li><a href="#">열</a></li>
+            <li><a href="#">기침</a></li>
+            <li><a href="#">바이러스</a></li>
+            <li><a href="#">경보</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex_wrap pc_con">
     <div class="as_c util_wrap flex_wrap f_e">
       <ul>
         <li>
@@ -62,85 +88,37 @@
         <li><a href="#" class="util log">로그인&sol;로그아웃</a></li>
       </ul>
     </div>
-    <a onclick="location.href='../admin/service01.html'" target="_blank" href="#" class="as_c link flex_wrap">
+    <a onclick="location.href='../admin/service01.html'" href="#" class="as_c link flex_wrap">
       <span>플랫폼관리자사이트</span>
       <img src="../../images/ico_blank.png" alt="플랫폼 관리자 사이트 이동 아이콘">
     </a>
   </div>
 </header>
 <!-- // Header -->
-
-<script>
-  $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
-  })
-</script>
   <!-- Contents -->
-  <div class="contents platform">
+  <div class="contents platform virus">
     <div class="flex_wrap f_sb">
-      <div class="monitoring_wrap stat_tab_wrap">
-        <h2 class="tit02_h2">모니터링 [프로그램실]</h2>
-        <div>
-          <div class="drawarea_wrap">
+      <div class="monitoring_wrap">
+        <div class="box">
+          <div class="drawarea_wrap" style="height:470px;">
             <div id="models"><canvas></canvas></div>
             <div class="legend">
               <img src="../../images/img_sensor_legend.png" alt="범례">
             </div>
           </div>
+        </div>
+        <div class="box">
           <ul class="info_wrap">
             <li>
               <div class="tit_info_wrap flex_wrap f_sb">
-                <div class="flex_wrap">
-                  <h3 class="tit03_h3">발열</h3>
-                  <p class="as_c">
-                    <span class="font_b">2명</span> /
-                    <span>2명</span>
-                  </p>
-                </div>
-                <a href="#" class="more as_c" onclick="return false;" id="btnPopFever"></a>
-              </div>
-            </li>
-            <li>
-              <div class="tit_info_wrap flex_wrap f_sb">
-                <div class="flex_wrap">
-                  <h3 class="tit03_h3">기침</h3>
-                  <p class="as_c">
-                    <span class="font_b">2명</span> /
-                    <span>2명</span>
-                  </p>
-                </div>
-                <a href="#" class="more as_c"></a>
-              </div>
-              <div style="height:120px;">
-                <canvas id="chart0_1" style="width:90%;height:90%;"></canvas>
-              </div>
-            </li>
-            <li>
-              <div class="tit_info_wrap flex_wrap f_sb">
-                <div class="flex_wrap">
-                  <h3 class="tit03_h3">바이러스</h3>
-                  <p class="as_c">
-                    <b>코로나</b>
-                    <span class="font_b">Y</span> /
-                    <span>N</span>
-                  </p>
-                  <p class="as_c">
-                    <span class="font_b">2명</span> /
-                    <span>2명</span>
-                  </p>
-                </div>
-                <a href="#" class="more as_c" onclick="return false;" id="btnPopVirus"></a>
+                <h3 class="tit03_h3">발생자 정보</h3>
+                <span class="tit_date as_c">2023년 06월 19일</span>
               </div>
               <div class="stage_area f_c flex_wrap">
-                <div class="as_c">
-                  <img src="../../images/img_virussensor.png" alt="바이러스 센서 이미지">
-                  <span class="font_b">virus i-watcher</span>
-                </div>
-                <ul class="stage_wrap as_c">
-                  li에 class name 'on'을 추가하면 활성화 상태가 됩니다.
-                  <li>미작동</li>
-                  <li>포집중</li>
-                  <li class="on">검사중</li>
+                <img src="../../images/img_virussensor.png" alt="바이러스 센서 이미지">
+                <ul>
+                  <li><b>코로나</b><span><span class="font_b">2</span>건 / 10회</span></li>
+                  <li><b>인플루엔자</b><span><span class="font_b">1</span>건 / 10회</span></li>
                 </ul>
               </div>
             </li>
@@ -148,49 +126,27 @@
         </div>
       </div>
       <div class="situchart_wrap">
-        <div class="situation_wrap box">
-          <h3 class="tit02_h3">연계상황</h3>
-          <ul>
-            <li>
-              <h4>환경센서</h4>
-              <span class="state01">안전</span>
-            </li>
-            <li>
-              <h4>KMA API</h4>
-              <span class="state01">안전</span>
-            </li>
-            <li>
-              <h4>i-watcher</h4>
-              <span class="state03">심각</span>
-            </li>
-          </ul>
+        <div class="box">
+          <h3 class="tit02_h3">측정소 &sol; 장비 현황 표시</h3>
+          <div class="tbl_wrap">
+            <table id="jqGridVirus_01" class="jq-grid"></table>
+          </div>
         </div>
-        <div class="chart_wrap box">
-          <ul>
-            <li>
-              <h3 class="tit02_h3">온도 [TEMPERATURE]</h3>
-              <div>
-                <canvas id="chart1_1"></canvas>
-              </div>
-            </li>
-            <li>
-              <h3 class="tit02_h3">습도 [HUMIDITY]</h3>
-              <div>
-                <canvas id="chart1_2"></canvas>
-              </div>
-            </li>
-            <li>
-              <h3 class="tit02_h3">이산화탄소 [CO2]</h3>
-              <div>
-                <canvas id="chart1_3"></canvas>
-              </div>
-            </li>
-          </ul>
+        <div class="situation_wrap box">
+          <h3 class="tit02_h3">검사결과 확인</h3>
+          <div class="tbl_wrap">
+            <table id="jqGridVirus_02" class="jq-grid"></table>
+          </div>
+        </div>
+        <div class="box">
+          <div>
+            <canvas id="chartVirus" height="185"></canvas>
+          </div>
         </div>
       </div>
     </div>
   </div>
-<!-- // Contents -->
+  <!-- // Contents -->
   <!-- Footer -->
 <div class="footer flex_wrap f_sb">
   <div class="flex_wrap">
@@ -200,289 +156,134 @@
   <copy>Copyright &copy; 2023 . All rights reserved.</copy>
 </div>
 <!-- // Footer -->
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
 
-  <!-- 바이러스 팝업 -->
-  <div id="popVirus" class="pop_overlay" style="display:none;">
-    <div class="pop_wrap p_virus">
-      <div class="pop_tit">
-        <h1>바이러스 i-watcher</h1>
-        <button type="button" class="btn_pop_close" closePop></button>
-      </div>
-      <div class="pop_body">
-        <div class="pop_cont">
-          <table class="tbl_row" style="margin-bottom:35px;">
-            <caption>바이러스 수동 검사 요청 테이블</caption>
-            <colgroup>
-              <col style="width:30%;">
-              <col style="width:70%;">
-            </colgroup>
-            <tr>
-              <th scope="row">virus i-watcher 정보</th>
-              <td>010101010101</td>
-            </tr>
-            <tr>
-              <th scope="row"><label for="newpw">새 비밀번호</label></th>
-              <td>
-                <ul class="stage_wrap as_c">
-                  <!-- li에 class name 'on'을 추가하면 활성화 상태가 됩니다. -->
-                  <li>미작동</li>
-                  <li class="on">포집중</li>
-                  <li>검사중</li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">수동 검사 요청</th>
-              <td><button type="button" class="btn btn_deepblue"><i class="axi axi-ion-checkmark-round"
-                    style="margin-right:10px;"></i>수동 검사 요청</button></td>
-            </tr>
-            <tr>
-              <th scope="row">수동 검사 요청시간</th>
-              <td>2022.08.10.15:30</td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--// 바이러스 팝업 -->
-
-    <!-- 발열 팝업 -->
-  <div id="popFever" class="pop_overlay" style="display:none;">
-    <div class="pop_wrap p_fever">
-      <div class="pop_tit">
-        <h1>발열 i-watcher</h1>
-        <button type="button" class="btn_pop_close" closePop></button>
-      </div>
-      <div class="pop_body">
-        <div class="pop_cont">
-          <table class="tbl_row" style="margin-bottom:35px;">
-            <caption>발열 정보 테이블</caption>
-            <tr style="white-space: pre;">
-              <th scope="row">fever  i-watcher 정보</th>
-              <td>010101010101</td>
-            </tr>
-            <tr>
-              <th scope="row" style="white-space: pre;">시간</th>
-              <td>
-                <table class="tbl_num font_black">
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                    <td>23</td>
-                    <td>24</td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row" style="white-space: pre;">이상 발열자 수</th>
-              <td>
-                <table class="tbl_num">
-                  <tr>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>1</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                    <td>0</td>
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>
-          <div class="box" style="width:100%;height:191px;">
-            <canvas id="chart0_2"></canvas>
-          </div>
-          <div class="btn_wrap alignR">
-          <button type="button" class="btn_m btn_greenline">엑셀 저장</button>
-        </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--// 발열 팝업 -->
+  <script>
+    // 데이터
+    // 차트
+    var chartData = {
+      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
+      datasets: [{
+        label: '2019년',
+        backgroundColor: '#30c1b75c',
+        borderSkipped: false,
+        data: [0, 0, 0, 0, 2, 0, 0, 0]
+      }
+      ]
+    };
+    var chartOption = {
+      layout: {
+        padding: {
+          top: 20
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: false
+      }
+    };
+    // 그리드
+    var data01 = [
+      { "d0": "대전-33", "d1": "유성구 가정동 123", "d2": "면역진단", "d3": "", "d4": "검사<br class='m_con'>요청" },
+      { "d0": "대전-33", "d1": "유성구 가정동 123", "d2": "면역진단", "d3": "", "d4": "검사<br class='m_con'>요청" },
+      { "d0": "대전-33", "d1": "유성구 가정동 123", "d2": "면역진단", "d3": "", "d4": "검사<br class='m_con'>요청" },
+      { "d0": "대전-33", "d1": "유성구 가정동 123", "d2": "면역진단", "d3": "", "d4": "검사<br class='m_con'>요청" }
+    ]
+    var data02 = [
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+      { "d0": "1", "d1": "2023.5.15", "d2": "09:00", "d3": "10:00	", "d4": "", "d5": "보기" },
+    ]
 
 
+    // 함수
+    // 차트
+    function createChart(ctx, type) {
+      return new Chart(ctx, {
+        type: type,
+        data: chartData,
+        options: chartOption
+      });
+    }
+    // 그리드 내 버튼
+    function btnRequest(cellvalue) {
+      var str = "";
+      str += "<button type='button' class='btn_m btn_mintline'>" + cellvalue + "</button>";
+      return str;
+    }
+    function stageWrap() {
+      var str = "";
+      str += `<ul class="stage_wrap stage_wrap_s equip">
+        <li class="on">전원</li>
+        <li class="on">대기중</li>
+        <li class="on">검사중<p>[STEP = 3]</p></li>
+      </ul>`
+      return str;
+    }
+    function resultWrap() {
+      var str = "";
+      str += `<b>Influenza</b><span class="result_badge positive">양성</span><br class="m_con"><span class="pc_con">  /  </span><b>COVID-19</b><span class="result_badge negative">음성</span>`
+      return str;
+    }
+    function btnMore(cellvalue) {
+      var str = "";
+      str += "<button type='button' class='btn_m btn_lightgrayline'>" + cellvalue + "</button>";
+      return str;
+    }
+
+
+    // 차트
+    createChart(document.getElementById('chartVirus').getContext('2d'), 'line');
+    // 그리드
+    $("#jqGridVirus_01").jqGrid({
+      data: data01,
+      datatype: "local",
+      colModel: [
+        { label: 'i-Watcher 정보', name: 'd0', width: 20, align: 'center' },
+        { label: '위치', name: 'd1', width: 30, align: 'center' },
+        { label: '진단 종류	', name: 'd2', width: 15, align: 'center' },
+        { label: '장비 현황', name: 'd3', align: 'center', width: 40, formatter: stageWrap },
+        { label: '검사 요청', name: 'd4', align: 'center', width: 15, formatter: btnRequest }
+      ],
+      height: 120,
+      rowTotal: -1,
+      jsonReader: { repeatitems: false },
+      shrinkToFit: true,
+      autoWidth: true
+    })
+    $("#jqGridVirus_02").jqGrid({
+      data: data02,
+      datatype: "local",
+      colModel: [
+        { label: '검사회차', name: 'd0', width: 10, align: 'center' },
+        { label: '날짜', name: 'd1', width: 20, align: 'center' },
+        { label: '시작', name: 'd2', width: 10, align: 'center' },
+        { label: '종료', name: 'd3', width: 10, align: 'center' },
+        { label: '결과', name: 'd4', width: 40, align: 'center', formatter: resultWrap },
+        { label: '상세', name: 'd5', width: 10, align: 'center', formatter: btnMore }
+      ],
+      height: 200,
+      rowTotal: -1,
+      jsonReader: { repeatitems: false },
+      shrinkToFit: true,
+      autoWidth: true
+    })
+    jqgridInit();
+  </script>
 </body>
-
-
-<script>
-  // chart0-1
-  var ctx0_1 = document.getElementById('chart0_1').getContext('2d');
-  new Chart(ctx0_1, {
-    type: 'line',
-    data: {
-      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [0, 0, 0, 0, 2, 0, 0, 0]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart0-2
-  var ctx0_2 = document.getElementById('chart0_2').getContext('2d');
-  new Chart(ctx0_2, {
-    type: 'line',
-    data: {
-      labels: ["0", "2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "24"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [0, 0, 0, 0, 2, 0, 0, 0]
-      }
-      ]
-    },
-    options: {
-      maintainAspectRatio : false,
-      responsive: false,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-1
-  var ctx1_1 = document.getElementById('chart1_1').getContext('2d');
-  new Chart(ctx1_1, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      },
-      {
-        label: '2019년',
-        backgroundColor: '#3476d080',
-        borderSkipped: false,
-        data: [514, 177, 566, 54, 160, 240, 160, 1540]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-2
-  var ctx1_2 = document.getElementById('chart1_2').getContext('2d');
-  new Chart(ctx1_2, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      },
-      {
-        label: '2019년',
-        backgroundColor: '#3476d080',
-        borderSkipped: false,
-        data: [514, 177, 566, 54, 160, 240, 160, 1540]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  // chart1-3
-  var ctx1_3 = document.getElementById('chart1_3').getContext('2d');
-  new Chart(ctx1_3, {
-    type: 'line',
-    data: {
-      labels: ["AM11:00", "PM13:00", "PM14:00", "PM15:00", "PM16:00", "PM17:00", "PM18:00", "PM19:00"],
-      datasets: [{
-        label: '2019년',
-        backgroundColor: '#30c1b75c',
-        borderSkipped: false,
-        data: [160, 1767, 360, 1767, 160, 240, 160, 1767]
-      }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: false
-      }
-    }
-  });
-</script>
-
-<script>
-  $('#btnPopVirus').on('click', function () {
-    $('#popVirus').show();
-  })
-  $('#btnPopFever').on('click', function () {
-    $('#popFever').show();
-  })
-</script>
 
 </html>

@@ -1,11 +1,11 @@
 <!-- Header -->
-<header>
+<header class="flex_wrap f_sb">
   <h1 class="logo">
     <a href="info01.html">
       <img src="../../images/img_h1_title.png" alt="감염병 위험도 플랫폼">
     </a>
   </h1>
-  <ul class="gnb flex_wrap" role="navigation">
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
     <li>
       <a class="on" href="info01.html">공간정보 모니터링</a>
     </li>
@@ -13,7 +13,7 @@
       <a href="virus01.html">바이러스 모니터링</a>
     </li>
     <li>
-      <a href="stat01.html">공간정보 통계</a>
+      <a href="stat01.html">공간정보 통계분석</a>
       <ul class="sub">
         <li><a href="stat01.html">온도</a></li>
         <li><a href="#">습도</a></li>
@@ -26,7 +26,42 @@
       </ul>
     </li>
   </ul>
-  <div class="flex_wrap">
+  <div class="m_con">
+    <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+    <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+      <div class="util_wrap flex_wrap f_sb ai_c">
+        <ul class="ai_c">
+          <li>
+            <span><b>관리자</b>님</span>
+            <span><a href="#" class="util user">내정보</a></span>
+          </li>
+          <li><a href="#" class="util log">로그인&sol;로그아웃</a></li>
+        </ul>
+        <a onclick="location.href='../admin/service01.html'" href="#" class="link flex_wrap ai_c">
+          <span>모니터링 사이트</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+      </div>
+      <ul class="m_gnb m_con" role="navigation">
+        <li><a class="on" href="info01.html">공간정보 모니터링</a></li>
+        <li><a href="virus01.html">바이러스 모니터링</a></li>
+        <li>
+          <a href="#">공간정보 통계분석</a>
+          <ul class="sub">
+            <li><a href="stat01.html">온도</a></li>
+            <li><a href="#">습도</a></li>
+            <li><a href="#">이산화탄소</a></li>
+            <li><a href="#">변위</a></li>
+            <li><a href="#">열</a></li>
+            <li><a href="#">기침</a></li>
+            <li><a href="#">바이러스</a></li>
+            <li><a href="#">경보</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="flex_wrap pc_con">
     <div class="as_c util_wrap flex_wrap f_e">
       <ul>
         <li>
@@ -36,16 +71,10 @@
         <li><a href="#" class="util log">로그인&sol;로그아웃</a></li>
       </ul>
     </div>
-    <a onclick="location.href='../admin/service01.html'" target="_blank" href="#" class="as_c link flex_wrap">
+    <a onclick="location.href='../admin/service01.html'" href="#" class="as_c link flex_wrap">
       <span>플랫폼관리자사이트</span>
       <img src="../../images/ico_blank.png" alt="플랫폼 관리자 사이트 이동 아이콘">
     </a>
   </div>
 </header>
 <!-- // Header -->
-
-<script>
-  $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
-  })
-</script>

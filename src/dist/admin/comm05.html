@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>감염병 위험도 플랫폼</title>
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="../../plugins/axicon/axicon.min.css" />
+  <link rel="stylesheet" href="../../plugins/jquery-ui/themes/base/jquery-ui.min.css" />
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
+  <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
+  <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
+  <link rel="stylesheet" href="../../css/merge.css">
+</head>
+
+<body>
+  <!-- Header -->
+<header class="admin f_sb ai_c">
+  <h1 class="logo">
+    <a href="service01.html">
+      <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
+    </a>
+  </h1>
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
+    <li><a class="on" href="service01.html">서비스 현황</a></li>
+    <li>
+      <a href="notice01.html">게시판</a>
+      <ul class="sub">
+        <li><a href="notice01.html">공지사항</a></li>
+        <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="comm01.html">관리자 지원</a>
+      <ul class="sub">
+        <li><a href="comm01.html">공용코드 관리</a></li>
+        <li><a href="comm02.html">사용자 관리</a></li>
+        <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+        <li><a href="comm04.html">시설물 관리</a></li>
+        <li><a href="comm05.html">감염병 알림 서비스</a></li>
+      </ul>
+    </li>
+    <li><a href="compare01.html">통합 비교</a></li>
+  </ul>
+  <div>
+    <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+      <span>모니터링사이트</span>
+      <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+    </a>
+    <div class="m_con">
+      <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+      <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+        <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+          <span>모니터링 사이트로 이동하기</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+        <ul class="m_gnb m_con" role="navigation">
+          <li><a class="on" href="service01.html">서비스 현황</a></li>
+          <li>
+            <a href="notice01.html">게시판</a>
+            <ul class="sub">
+              <li><a href="notice01.html">공지사항</a></li>
+              <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="comm01.html">관리자 지원</a>
+            <ul class="sub">
+              <li><a href="comm01.html">공용코드 관리</a></li>
+              <li><a href="comm02.html">사용자 관리</a></li>
+              <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+              <li><a href="comm04.html">시설물 관리</a></li>
+              <li><a href="comm05.html">감염병 알림 서비스</a></li>
+            </ul>
+          </li>
+          <li><a href="compare01.html">통합 비교</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- // Header -->
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">감염병 알림 서비스</h2>
+      <ul class="search search_info">
+        <li><label><input type="checkbox"> 문자 서비스</label></li>
+        <li><label><input type="checkbox"> 카카오 서비스</label></li>
+      </ul>
+      <div class="alarm_wrap flex_wrap f_sb">
+        <div class="section">
+          <div>
+            <h3 class="tit_detail_group">그룹 선택</h3>
+            <ul class="group_box">
+              <li class="on"><a href="#">케이아이티밸리</a></li>
+              <li><a href="#">아델라실버케어 요양원</a></li>
+              <li><a href="#">A 초등학교</a></li>
+              <li><a href="#">한국전자통신연구원</a></li>
+              <li><a href="#">한돈혁신센터</a></li>
+              <li><a href="#">공주대 실험용 축사</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="tit_detail_group">
+              <input type="checkbox" id="con_detail_all">
+              <label for="con_detail_all">전체 선택</label>
+            </h3>
+            <ul class="con_detail_group">
+              <li>
+                <input type="checkbox" id="con_detail_1">
+                <label for="con_detail_1">케이아이티밸리</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_2" checked>
+                <label for="con_detail_2">고길동</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_3">
+                <label for="con_detail_3">뽀로로</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_4" checked>
+                <label for="con_detail_4">신짱구</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_5">
+                <label for="con_detail_5">피카츄</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_6" checked>
+                <label for="con_detail_6">뿡뿡이</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_7" checked>
+                <label for="con_detail_7">호빵맨</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_8">
+                <label for="con_detail_8">스누피</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_9">
+                <label for="con_detail_9">노진구</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"></div>
+        <div class="section alarm_target">
+          <div>
+            <h3 class="tit_detail_group">전송대상</h3>
+            <div>
+              <ul class="selectlist_wrap flex_wrap">
+                <li><span>케이아이티밸리</span><i class="axi axi-close"></i></li>
+                <li><span>뽀로로</span><i class="axi axi-close"></i></li>
+                <li><span>신짱구</span><i class="axi axi-close"></i></li>
+                <li><span>피카츄</span><i class="axi axi-close"></i></li>
+                <li><span>스누피</span><i class="axi axi-close"></i></li>
+                <li><span>한돈혁신센터</span><i class="axi axi-close"></i></li>
+              </ul>
+              <p class="count_wrap flex_wrap f_sb alignR">
+                <button type="button" class="ico_reset">초기화</button>
+                <span><b id="nowPeople" class="font_navy"></b> 명</span>
+              </p>
+            </div>
+          </div>
+          <div class="alarm_con">
+            <h3 class="tit_detail_group">전송 내용</h3>
+            <div class="alarm_tem">
+              <div class="flex_wrap f_sb">
+                <div>
+                  <label for="sel_template"><b>템플릿 선택</b></label>
+                  <select name="select template" id="sel_template">
+                    <option value="선택">선택</option>
+                    <option value="주의" selected>주의</option>
+                  </select>
+                </div>
+                <button type="button" class="btn_m btn_orange btnTemplate">템플릿 수정</button>
+              </div>
+              <div class="alarm_txt">
+                <textarea title="전송 내용 텍스트 박스" onkeyup="fn_checkByte(this)"></textarea>
+                <p class="count_wrap alignR"><span id="nowByte">0</span>/180 byte</p>
+              </div>
+            </div>
+            <div class="alignC">
+              <button type="button" class="btn_l btn_blue">수동 발송</button>
+              <button type="button" class="btn_l btn_lightgray">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- // Contents -->
+  <!-- Footer -->
+<div class="footer flex_wrap f_sb">
+  <div class="flex_wrap">
+    <img src="../../images/ico_call.png" style="height:23px;align-self:center;" alt="플랫폼 관리자 연락처 아이콘">
+    <span>플랫폼 관리자  02-2624-3555</span>
+  </div>
+  <copy>Copyright &copy; 2023 . All rights reserved.</copy>
+</div>
+<!-- // Footer -->
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
+  <!-- 기침 팝업 -->
+<div id="popTemplate" class="pop_overlay" style="display:none;">
+  <div class="pop_wrap p_template">
+    <div class="pop_tit">
+      <div class="flex_wrap ai_c">
+        <h1>템플릿 수정</h1>
+      </div>
+      <button type="button" class="btn_pop_close" closePop></button>
+    </div>
+    <div class="pop_body">
+      <div class="pop_cont">
+        <div class="alarm_tem">
+          <div class="flex_wrap ai_ f_sb">
+            <label for="sel_template"><b>템플릿 명</b></label>
+            <select name="select template" id="sel_template">
+              <option value="선택">선택</option>
+              <option value="주의" selected>주의</option>
+            </select>
+          </div>
+          <div class="alarm_txt">
+            <textarea title="전송 내용 텍스트 박스">기침⸱호흡곤란 등 이상증상 위험이 있으니 실내 환기, 손씻기 등 위생관리 철저로 건강관리에 유의하기 바랍니다.</textarea>
+          </div>
+        </div>
+        <div class="btn_wrap alignC">
+          <button type="button" class="btn btn_blue">저장</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--// 기침 팝업 -->
+
+<script>
+  // chart0-3(기침)
+  var ctx = document.getElementById('chart0_3').getContext('2d');
+  var data = {
+    labels: ['A', 'B', 'C', 'D', 'E'],
+    datasets: [{
+      label: '막대형',
+      data: [10, 15, 7, 12, 9],
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: 'rgba(75, 192, 192, 1)',
+      borderWidth: 1,
+      type: 'bar'
+    }, {
+      label: '꺾은선형',
+      data: [8, 10, 6, 9, 7],
+      fill: false,
+      borderColor: 'rgba(255, 99, 132, 1)',
+      pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+      pointBorderColor: 'rgba(255, 99, 132, 1)',
+      pointRadius: 5,
+      type: 'line'
+    }]
+  };
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    },
+    legend: {
+      position: 'top',
+      align: 'end'
+    }
+  };
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: options
+  });
+</script> <!-- 템플릿 선택 팝업 -->
+
+  <script>
+    $('.btnTemplate').on('click', function () {
+      $('#popTemplate').show();
+    })
+
+    //tab
+    var group_btn = $('.group_box li');
+    $('.group_box').on('click', 'a', function (e) {
+      e.preventDefault();
+      var getId = $(this).prop('href').split('#')[1];
+      group_btn.removeClass('on');
+      $(this).parent('li').addClass('on');
+      $('#' + getId).show();
+      jqgridInit();
+      echartInit();
+    });
+
+    $(function () {
+      fn_checkPeople();
+      fn_checkByte();
+    })
+
+    // 대상 삭제
+    $(".selectlist_wrap i").on('click', function () {
+      $(this).parents('li').remove();
+      fn_checkPeople();
+    })
+    // 대상 길이 체크
+    function fn_checkPeople() {
+      var countPeople = $('.selectlist_wrap').children().length;
+      $('#nowPeople').text(countPeople.toString())
+    }
+    // 내용 길이 체크
+    function fn_checkByte(obj) {
+      const maxByte = 180;
+      const text_val = obj.value; //입력한 문자
+      const text_len = text_val.length; //입력한 문자수
+      let totalByte = 0;
+      for (let i = 0; i < text_len; i++) {
+        const each_char = text_val.charAt(i);
+        const uni_char = escape(each_char) //유니코드 형식으로 변환
+        if (uni_char.length > 4) {
+          // 한글 : 2Byte
+          totalByte += 2;
+        } else {
+          // 영문,숫자,특수문자 : 1Byte
+          totalByte += 1;
+        }
+      }
+      if (totalByte > maxByte) {
+        alert('최대 180byte까지만 입력가능합니다.');
+        document.getElementById("nowByte").innerText = totalByte;
+        document.getElementById("nowByte").style.color = "#fb7979";
+      } else {
+        document.getElementById("nowByte").innerText = totalByte;
+        document.getElementById("nowByte").style.color = "#235daa";
+      }
+    }
+  </script>
+</body>
+
+</html>

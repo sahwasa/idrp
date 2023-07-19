@@ -1,0 +1,190 @@
+@@include('../inc/top.html')
+
+<body>
+  @@include('../inc/admin_header.html')
+  <!-- Contents -->
+  <div class="contents wrap">
+    <div class="notice_area">
+      <h2 class="tit_h2">감염병 알림 서비스</h2>
+      <ul class="search search_info">
+        <li><label><input type="checkbox"> 문자 서비스</label></li>
+        <li><label><input type="checkbox"> 카카오 서비스</label></li>
+      </ul>
+      <div class="alarm_wrap flex_wrap f_sb">
+        <div class="section">
+          <div>
+            <h3 class="tit_detail_group">그룹 선택</h3>
+            <ul class="group_box">
+              <li class="on"><a href="#">케이아이티밸리</a></li>
+              <li><a href="#">아델라실버케어 요양원</a></li>
+              <li><a href="#">A 초등학교</a></li>
+              <li><a href="#">한국전자통신연구원</a></li>
+              <li><a href="#">한돈혁신센터</a></li>
+              <li><a href="#">공주대 실험용 축사</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+              <li><a href="#">임시그룹</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="tit_detail_group">
+              <input type="checkbox" id="con_detail_all">
+              <label for="con_detail_all">전체 선택</label>
+            </h3>
+            <ul class="con_detail_group">
+              <li>
+                <input type="checkbox" id="con_detail_1">
+                <label for="con_detail_1">케이아이티밸리</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_2" checked>
+                <label for="con_detail_2">고길동</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_3">
+                <label for="con_detail_3">뽀로로</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_4" checked>
+                <label for="con_detail_4">신짱구</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_5">
+                <label for="con_detail_5">피카츄</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_6" checked>
+                <label for="con_detail_6">뿡뿡이</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_7" checked>
+                <label for="con_detail_7">호빵맨</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_8">
+                <label for="con_detail_8">스누피</label>
+              </li>
+              <li>
+                <input type="checkbox" id="con_detail_9">
+                <label for="con_detail_9">노진구</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="arrow"></div>
+        <div class="section alarm_target">
+          <div>
+            <h3 class="tit_detail_group">전송대상</h3>
+            <div>
+              <ul class="selectlist_wrap flex_wrap">
+                <li><span>케이아이티밸리</span><i class="axi axi-close"></i></li>
+                <li><span>뽀로로</span><i class="axi axi-close"></i></li>
+                <li><span>신짱구</span><i class="axi axi-close"></i></li>
+                <li><span>피카츄</span><i class="axi axi-close"></i></li>
+                <li><span>스누피</span><i class="axi axi-close"></i></li>
+                <li><span>한돈혁신센터</span><i class="axi axi-close"></i></li>
+              </ul>
+              <p class="count_wrap flex_wrap f_sb alignR">
+                <button type="button" class="ico_reset">초기화</button>
+                <span><b id="nowPeople" class="font_navy"></b> 명</span>
+              </p>
+            </div>
+          </div>
+          <div class="alarm_con">
+            <h3 class="tit_detail_group">전송 내용</h3>
+            <div class="alarm_tem">
+              <div class="flex_wrap f_sb">
+                <div>
+                  <label for="sel_template"><b>템플릿 선택</b></label>
+                  <select name="select template" id="sel_template">
+                    <option value="선택">선택</option>
+                    <option value="주의" selected>주의</option>
+                  </select>
+                </div>
+                <button type="button" class="btn_m btn_orange btnTemplate">템플릿 수정</button>
+              </div>
+              <div class="alarm_txt">
+                <textarea title="전송 내용 텍스트 박스" onkeyup="fn_checkByte(this)"></textarea>
+                <p class="count_wrap alignR"><span id="nowByte">0</span>/180 byte</p>
+              </div>
+            </div>
+            <div class="alignC">
+              <button type="button" class="btn_l btn_blue">수동 발송</button>
+              <button type="button" class="btn_l btn_lightgray">취소</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- // Contents -->
+  @@include('../inc/footer.html')
+  @@include('../inc/script.html')
+  @@include('../pop/popTemplate.html') <!-- 템플릿 선택 팝업 -->
+
+  <script>
+    $('.btnTemplate').on('click', function () {
+      $('#popTemplate').show();
+    })
+
+    //tab
+    var group_btn = $('.group_box li');
+    $('.group_box').on('click', 'a', function (e) {
+      e.preventDefault();
+      var getId = $(this).prop('href').split('#')[1];
+      group_btn.removeClass('on');
+      $(this).parent('li').addClass('on');
+      $('#' + getId).show();
+      jqgridInit();
+      echartInit();
+    });
+
+    $(function () {
+      fn_checkPeople();
+      fn_checkByte();
+    })
+
+    // 대상 삭제
+    $(".selectlist_wrap i").on('click', function () {
+      $(this).parents('li').remove();
+      fn_checkPeople();
+    })
+    // 대상 길이 체크
+    function fn_checkPeople() {
+      var countPeople = $('.selectlist_wrap').children().length;
+      $('#nowPeople').text(countPeople.toString())
+    }
+    // 내용 길이 체크
+    function fn_checkByte(obj) {
+      const maxByte = 180;
+      const text_val = obj.value; //입력한 문자
+      const text_len = text_val.length; //입력한 문자수
+      let totalByte = 0;
+      for (let i = 0; i < text_len; i++) {
+        const each_char = text_val.charAt(i);
+        const uni_char = escape(each_char) //유니코드 형식으로 변환
+        if (uni_char.length > 4) {
+          // 한글 : 2Byte
+          totalByte += 2;
+        } else {
+          // 영문,숫자,특수문자 : 1Byte
+          totalByte += 1;
+        }
+      }
+      if (totalByte > maxByte) {
+        alert('최대 180byte까지만 입력가능합니다.');
+        document.getElementById("nowByte").innerText = totalByte;
+        document.getElementById("nowByte").style.color = "#fb7979";
+      } else {
+        document.getElementById("nowByte").innerText = totalByte;
+        document.getElementById("nowByte").style.color = "#235daa";
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -10,32 +10,20 @@
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.css">
   <link rel="stylesheet" href="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.css">
   <link rel="stylesheet" href="../../plugins/jqGrid/css/ui.jqgrid.css">
+  <link rel="stylesheet" href="../../plugins/slick/slick.css">
   <link rel="stylesheet" href="../../css/merge.css">
-
-  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
-  <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
-  <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
-  <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
-  <script src="../../js/Chart.bundle.js"></script>
-  <script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
-  <script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
-  <script src="../../js/file_attach.js"></script>
-  <script src="../../js/ui_common.js"></script>
 </head>
 
 <body>
   <!-- Header -->
-<header class="admin">
+<header class="admin f_sb ai_c">
   <h1 class="logo">
     <a href="service01.html">
       <img src="../../images/img_h1_admintitle.png" alt="감염병 위험도 플랫폼 관리자 페이지">
     </a>
   </h1>
-  <ul class="gnb flex_wrap" role="navigation">
-    <li>
-      <a class="on" href="service01.html">서비스 현황</a>
-    </li>
+  <ul class="gnb flex_wrap f_sb pc_con" role="navigation">
+    <li><a class="on" href="service01.html">서비스 현황</a></li>
     <li>
       <a href="notice01.html">게시판</a>
       <ul class="sub">
@@ -50,21 +38,49 @@
         <li><a href="comm02.html">사용자 관리</a></li>
         <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
         <li><a href="comm04.html">시설물 관리</a></li>
+        <li><a href="comm05.html">감염병 알림 서비스</a></li>
       </ul>
     </li>
+    <li><a href="compare01.html">통합 비교</a></li>
   </ul>
-  <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-    <span>모니터링사이트</span>
-    <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
-  </a>
+  <div>
+    <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+      <span>모니터링사이트</span>
+      <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+    </a>
+    <div class="m_con">
+      <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
+      <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
+        <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
+          <span>모니터링 사이트로 이동하기</span>
+          <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
+        </a>
+        <ul class="m_gnb m_con" role="navigation">
+          <li><a class="on" href="service01.html">서비스 현황</a></li>
+          <li>
+            <a href="notice01.html">게시판</a>
+            <ul class="sub">
+              <li><a href="notice01.html">공지사항</a></li>
+              <li><a href="notice02.html">매뉴얼 (자료실)</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="comm01.html">관리자 지원</a>
+            <ul class="sub">
+              <li><a href="comm01.html">공용코드 관리</a></li>
+              <li><a href="comm02.html">사용자 관리</a></li>
+              <li><a href="comm03.html">매뉴얼 (자료실)</a></li>
+              <li><a href="comm04.html">시설물 관리</a></li>
+              <li><a href="comm05.html">감염병 알림 서비스</a></li>
+            </ul>
+          </li>
+          <li><a href="compare01.html">통합 비교</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </header>
 <!-- // Header -->
-
-<script>
-  $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
-  })
-</script>
   <!-- Contents -->
   <div class="contents wrap">
     <div class="notice_area">
@@ -72,23 +88,29 @@
       <div>
         <div>
           <div class="standard_wrap">
-            <ul class="search f_sb">
+            <ul class="search">
               <li>
-                <select name="" id="">
+                <select title="설치지역 선택">
                   <option value="설치지역">설치지역</option>
                 </select>
-                <select name="" id="">
-                  <option value="시설물종류">시설물종류</option>
-                </select>
-                <select name="" id="">
-                  <option value="운영상태">운영상태</option>
-                </select>
-                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
               <li>
-                <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
+                <select title="시설물종류 선택">
+                  <option value="시설물종류">시설물종류</option>
+                </select>
+              </li>
+              <li>
+                <select title="운영상태 선택">
+                  <option value="운영상태">운영상태</option>
+                </select>
+              </li>
+              <li class="btn_wrap">
+                <button type="button" class="font_b btn_m btn_orange">검색</button>
               </li>
             </ul>
+          </div>
+          <div class="tbl_top alignR">
+            <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
           </div>
           <div class="tbl_wrap">
             <table id="treegrid" class="jq-grid"></table>
@@ -109,7 +131,17 @@
   </div>
   <copy>Copyright &copy; 2023 . All rights reserved.</copy>
 </div>
-<!-- // Footer -->
+<!-- // Footer --><script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
+<script src="../../plugins/jqueryui-timepicker-addon/dist/jquery.datetimepicker.full.min.js"></script>
+<script src="../../js/Chart.bundle.js"></script>
+<script src="../../plugins/jqGrid/js/jquery.jqGrid.js"></script>
+<script src="../../plugins/jqGrid/js/i18n/grid.locale-kr.js"></script>
+<script src="../../plugins/slick/slick.min.js"></script>
+<script src="../../js/file_attach.js"></script>
+<script src="../../js/ui_common.js"></script>
 
   <!-- 시설물 상세정보 센서 추가 팝업 -->
   <div id="popAddSenser" class="pop_overlay" style="display:none;">
@@ -136,13 +168,13 @@
                   <tr>
                     <th scope="row">설치 지역</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
                     <th scope="row">운영상태</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
@@ -160,7 +192,7 @@
                   <tr>
                     <th scope="row">시설물 종류</th>
                     <td>
-                      <select name="" id="">
+                      <select>
                         <option value=""></option>
                       </select>
                     </td>
@@ -194,10 +226,10 @@
                     <th scope="row">시설물 주소</th>
                     <td colspan="3">
                       <span class="flex_wrap">
-                        <select name="" id="" style="width:auto">
+                        <select style="width:auto">
                           <option value="경상남도">경상남도</option>
                         </select>
-                        <select name="" id="" style="width:auto">
+                        <select style="width:auto">
                           <option value="상주시">상주시</option>
                         </select>
                         <input type="text" style="width:100%;">
