@@ -35,14 +35,129 @@
       <div class="situchart_wrap">
         <div class="box">
           <h3 class="tit02_h3">측정소 &sol; 장비 현황 표시</h3>
-          <div class="tbl_wrap">
-            <table id="jqGridVirus_01" class="jq-grid"></table>
-          </div>
+          <table class="tbl_com">
+            <tbody>
+              <tr>
+                <td>
+                  <table class="tbl_scroll_head">
+                    <caption>측정소 &sol; 장비 현황 표시 테이블</caption>
+                    <colgroup>
+                      <col style="width:20%;">
+                      <col style="width:20%;">
+                      <col style="width:17.5%;">
+                      <col style="width:25%;">
+                      <col style="width:17.5%;">
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col">i-Watcher 정보</th>
+                        <th scope="col">위치</th>
+                        <th scope="col">진단 종류</th>
+                        <th scope="col">장비 현황</th>
+                        <th scope="col">검사 요청</th>
+                      </tr>
+                    </thead>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="tbl_scroll" style="height:120px;">
+                    <table class="tbl_com">
+                      <colgroup>
+                        <col style="width:20%;">
+                        <col style="width:20%;">
+                        <col style="width:17.5%;">
+                        <col style="width:25%;">
+                        <col style="width:17.5%;">
+                      </colgroup>
+                      <tbody>
+                        <tr>
+                          <td>대전-33</td>
+                          <td>유성구 가정동 123</td>
+                          <td>면역진단</td>
+                          <td>
+                            <ul class="stage_wrap stage_wrap_s equip">
+                              <li class="on">전원</li>
+                              <li class="on">대기중</li>
+                              <li class="on">검사중<p>[STEP = 3]</p></li>
+                            </ul>
+                          </td>
+                          <td><button type="button" class="btn_m btn_mintline">검사<br class="m_con">요청</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
         <div class="situation_wrap box">
           <h3 class="tit02_h3">검사결과 확인</h3>
           <div class="tbl_wrap">
-            <table id="jqGridVirus_02" class="jq-grid"></table>
+            <table class="tbl_com">
+              <tbody>
+                <tr>
+                  <td>
+                    <table class="tbl_scroll_head">
+                      <caption>검사결과 확인 테이블</caption>
+                      <colgroup>
+                        <col style="width:10%;">
+                        <col style="width:15%;">
+                        <col style="width:10%;">
+                        <col style="width:10%;">
+                        <col style="width:40%;">
+                        <col style="width:15%;">
+                      </colgroup>
+                      <thead>
+                        <tr>
+                          <th scope="col">검사회차</th>
+                          <th scope="col">날짜</th>
+                          <th scope="col">시작</th>
+                          <th scope="col">종료</th>
+                          <th scope="col">결과</th>
+                          <th scope="col">상세</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="tbl_scroll" style="height:200px;">
+                      <table class="tbl_com">
+                        <colgroup>
+                          <col style="width:10%;">
+                          <col style="width:15%;">
+                          <col style="width:10%;">
+                          <col style="width:10%;">
+                          <col style="width:40%;">
+                          <col style="width:15%;">
+                        </colgroup>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>2023.5.15</td>
+                            <td>09:00</td>
+                            <td>10:00</td>
+                            <td>
+                              <b>Influenza</b>
+                              <span class="result_badge positive">양성</span>
+                              <br class="m_con">
+                              <span class="pc_con">/</span>
+                              <b>COVID-19</b>
+                              <span class="result_badge negative">음성</span>
+                            </td>
+                            <td><button type='button' class='btn_m btn_lightgrayline'>보기</button></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="box">

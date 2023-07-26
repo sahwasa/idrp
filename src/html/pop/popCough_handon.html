@@ -21,9 +21,69 @@
             <td class="alignC">ID name</td>
           </tr>
         </table>
-        <div class="tbl_wrap">
-          <table id="jqGridPopCoughHandon" class="jq-grid"></table>
-        </div>
+        <table class="tbl_com">
+          <tbody>
+            <tr>
+              <td>
+                <table class="tbl_scroll_head">
+                  <caption>변위 제목 테이블</caption>
+                  <colgroup>
+                    <col style="width:10%;">
+                    <col style="width:15%;">
+                    <col style="width:15%;">
+                    <col style="width:15%;">
+                    <col style="width:30%;">
+                    <col style="width:15%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">No.</th>
+                      <th scope="col">측정<br class="m_con">시간</th>
+                      <th scope="col">육성<br class="m_con">단계</th>
+                      <th scope="col">기침수</th>
+                      <th scope="col">정상&sol;이상</th>
+                      <th scope="col">이상<br class="m_con">음성</th>
+                    </tr>
+                  </thead>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="tbl_scroll" style="height:240px;">
+                  <table class="tbl_com">
+                    <colgroup>
+                      <col style="width:10%;">
+                      <col style="width:15%;">
+                      <col style="width:15%;">
+                      <col style="width:15%;">
+                      <col style="width:30%;">
+                      <col style="width:15%;">  
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>h:mm</td>
+                        <td>자돈</td>
+                        <td>12</td>
+                        <td>정상</td>
+                        <td><button type="button" class="btn_m btn_blue" onclick='showPopImgDetail()'>보기</button></td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>h:mm</td>
+                        <td>자돈</td>
+                        <td>12</td>
+                        <td>정상</td>
+                        <td><button type="button" class="btn_m btn_blue" onclick='showPopImgDetail()'>보기</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <div class="box" style="width:100%;height:191px;">
           <canvas id="chartPopCoughHandon"></canvas>
         </div>
@@ -35,39 +95,3 @@
   </div>
 </div>
 <!--// 기침 팝업 -->
-
-<script>
-  // table data
-  var data01 = [
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" },
-    { "d0": "hh:mm:ss", "d1": "자돈", "10": "정상", "d3": "", "d4": "보기" }
-  ]
-  $("#jqGridPopCoughHandon").jqGrid({
-    data: data01,
-    datatype: "local",
-    colModel: [
-      { label: '측정시간', name: 'd0', align: 'center' },
-      { label: '측정단계', name: 'd1', align: 'center' },
-      { label: '기침 수', name: 'd2', align: 'center' },
-      { label: '정상 &sol; 이상', name: 'd3', align: 'center' },
-      { label: '촬영사진', name: 'd4', align: 'center', formatter: btnMore },
-    ],
-    height: 240,
-    rowTotal: -1,
-    rownumbers: true,
-    jsonReader: { repeatitems: false },
-    shrinkToFit: true,
-    autoWidth: true
-  })
-  function btnMore(cellvalue) {
-    var str = "";
-    str += "<button type='button' class='btn_m btn_blue' onclick='showPopImgDetail()'>" + cellvalue + "</button>";
-    return str;
-  }
-  jqgridInit();
-</script>

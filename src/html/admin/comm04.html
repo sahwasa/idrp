@@ -33,18 +33,143 @@
           <div class="tbl_top alignR">
             <button type="button" id="btnAddSenser" class="font_b btn_m btn_blue">시설 추가</button>
           </div>
-          <div class="tbl_wrap">
-            <table id="treegrid" class="jq-grid"></table>
-            <div id="gridpager"></div>
-          </div>
+          <table class="tbl_res tbl_tree">
+            <caption>시설물 관리 테이블</caption>
+            <colgroup>
+              <col style="width:2%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+              <col style="width:10.5%;">
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">지역코드</th>
+                <th scope="col">시설물ID</th>
+                <th scope="col">시설명</th>
+                <th scope="col">시설종류</th>
+                <th scope="col">센서수량</th>
+                <th scope="col">운영시작일</th>
+                <th scope="col">운영종료일</th>
+                <th scope="col">운영상태</th>
+                <th scope="col">상세보기</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tbl_tree_row">
+                <td data-label="" class="btn_tbltoggle">+</td>
+                <td data-label="지역코드">서울 금천구</td>
+                <td data-label="시설물ID">1</td>
+                <td data-label="시설명">A 요양원</td>
+                <td data-label="시설종류">요양원</td>
+                <td data-label="센서수량">4</td>
+                <td data-label="운영시작일">2022-09-09</td>
+                <td data-label="운영종료일"></td>
+                <td data-label="운영상태">운영중</td>
+                <td data-label="상세보기"><button type="button" class="btn_s btn_greenline">상세보기</button></td>
+              </tr>
+              <tr class="tbl_toggle tbl_tree_con">
+                <td class="btn_tbltoggle"></td>
+                <td colspan="9">
+                  <table class="tbl_res">
+                    <caption>시설물 관리 상세 테이블</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">장비ID</th>
+                        <th scope="col">장비구분</th>
+                        <th scope="col">제조사</th>
+                        <th scope="col">모델명</th>
+                        <th scope="col">Serial</th>
+                        <th scope="col">설치일자</th>
+                        <th scope="col">비고</th>
+                        <th scope="col">운영상태</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="장비ID">KIT-R01</td>
+                        <td data-label="장비구분">환경센서</td>
+                        <td data-label="제조사">guralp</td>
+                        <td data-label="모델명">CMG-DM24</td>
+                        <td data-label="Serial">A1858</td>
+                        <td data-label="설치일자">2022-08-01</td>
+                        <td data-label="비고"></td>
+                        <td data-label="운영상태">운영중</td>
+                      </tr>
+                      <tr>
+                        <td data-label="장비ID">KIT-R02</td>
+                        <td data-label="장비구분">환경센서</td>
+                        <td data-label="제조사">guralp</td>
+                        <td data-label="모델명">CMG-DM25</td>
+                        <td data-label="Serial">A1859</td>
+                        <td data-label="설치일자">2022-08-02</td>
+                        <td data-label="비고"></td>
+                        <td data-label="운영상태">운영중</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr class="tbl_tree_row">
+                <td data-label=" " class="btn_tbltoggle">+</td>
+                <td data-label="지역코드">서울 금천구</td>
+                <td data-label="시설물ID">1</td>
+                <td data-label="시설명">A 요양원</td>
+                <td data-label="시설종류">요양원</td>
+                <td data-label="센서수량">4</td>
+                <td data-label="운영시작일">2022-09-09</td>
+                <td data-label="운영종료일"></td>
+                <td data-label="운영상태">운영중</td>
+                <td data-label="상세보기"><button type="button" class="btn_s btn_greenline">상세보기</button></td>
+              </tr>
+              <tr class="tbl_toggle tbl_tree_con">
+                <td class="btn_tbltoggle"></td>
+                <td colspan="9">
+                  <table class="tbl_res">
+                    <caption>시설물 관리 상세 테이블</caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">장비ID</th>
+                        <th scope="col">장비구분</th>
+                        <th scope="col">제조사</th>
+                        <th scope="col">모델명</th>
+                        <th scope="col">Serial</th>
+                        <th scope="col">설치일자</th>
+                        <th scope="col">비고</th>
+                        <th scope="col">운영상태</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="장비ID">KIT-R01</td>
+                        <td data-label="장비구분">환경센서</td>
+                        <td data-label="제조사">guralp</td>
+                        <td data-label="모델명">CMG-DM24</td>
+                        <td data-label="Serial">A1858</td>
+                        <td data-label="설치일자">2022-08-01</td>
+                        <td data-label="비고"></td>
+                        <td data-label="운영상태">운영중</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
   </div>
 
-  </div>
   <!-- // Contents -->
-  @@include('../inc/footer.html')@@include('../inc/script.html')
+  @@include('../inc/footer.html')
+  @@include('../inc/script.html')
 
   <!-- 시설물 상세정보 센서 추가 팝업 -->
   <div id="popAddSenser" class="pop_overlay" style="display:none;">
@@ -71,13 +196,13 @@
                   <tr>
                     <th scope="row">설치 지역</th>
                     <td>
-                      <select>
+                      <select title="설치 지역 선택 박스">
                         <option value=""></option>
                       </select>
                     </td>
                     <th scope="row">운영상태</th>
                     <td>
-                      <select>
+                      <select title="운영상태 선택 박스">
                         <option value=""></option>
                       </select>
                     </td>
@@ -85,25 +210,25 @@
                   <tr>
                     <th scope="row">시설물 명</th>
                     <td>
-                      <input type="text">
+                      <input type="text" title="시설물 명 입력 박스">
                     </td>
                     <th scope="row">시설물 코드</th>
                     <td>
-                      <input type="text">
+                      <input type="text" title="시설물 코드 입력 박스">
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">시설물 종류</th>
                     <td>
-                      <select>
+                      <select title="시설물 종류 선택 박스">
                         <option value=""></option>
                       </select>
                     </td>
                     <th scope="row">위 &sol; 경도</th>
                     <td>
                       <span class="flex_wrap f_sb">
-                        <input type="text" style="width:49%;">
-                        <input type="text" style="width:49.5%;">
+                        <input type="text" style="flex:1;" title="위도 입력 박스">
+                        <input type="text" style="flex:1;" title="경도 입력 박스">
                       </span>
                     </td>
                   </tr>
@@ -122,27 +247,27 @@
                   <tr>
                     <th scope="row">설치 위치</th>
                     <td colspan="3">
-                      <input type="text">
+                      <input type="text" title="설치 위치 입력 박스">
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">시설물 주소</th>
                     <td colspan="3">
                       <span class="flex_wrap">
-                        <select style="width:auto">
+                        <select title="시설물 주소 선택 박스" style="width:auto">
                           <option value="경상남도">경상남도</option>
                         </select>
-                        <select style="width:auto">
+                        <select title="시설물 주소 선택 박스" style="width:auto">
                           <option value="상주시">상주시</option>
                         </select>
-                        <input type="text" style="width:100%;">
+                        <input type="text" title="시설물 주소 입력 박스" style="flex:1;">
                       </span>
                     </td>
                   </tr>
                   <tr>
                     <th scope="row">비고</th>
                     <td colspan="3">
-                      <input type="text">
+                      <input type="text" title="비고 입력 박스">
                     </td>
                   </tr>
                 </table>
@@ -155,9 +280,135 @@
             <!-- 기록계 -->
             <div class="recorder" style="margin-bottom:35px;">
               <h4>장비 및 센서정보</h4>
-              <div>
-                <table id="treegrid2"></table>
-              </div>
+              <table class="tbl_res tbl_tree">
+                <caption>시설물 관리 테이블</caption>
+                <colgroup>
+                  <col style="width:2%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                  <col style="width:10.5%;">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">지역코드</th>
+                    <th scope="col">시설물ID</th>
+                    <th scope="col">시설명</th>
+                    <th scope="col">시설종류</th>
+                    <th scope="col">센서수량</th>
+                    <th scope="col">운영시작일</th>
+                    <th scope="col">운영종료일</th>
+                    <th scope="col">운영상태</th>
+                    <th scope="col">상세보기</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="tbl_tree_row">
+                    <td data-label="" class="btn_tbltoggle">+</td>
+                    <td data-label="지역코드">서울 금천구</td>
+                    <td data-label="시설물ID">1</td>
+                    <td data-label="시설명">A 요양원</td>
+                    <td data-label="시설종류">요양원</td>
+                    <td data-label="센서수량">4</td>
+                    <td data-label="운영시작일">2022-09-09</td>
+                    <td data-label="운영종료일"></td>
+                    <td data-label="운영상태">운영중</td>
+                    <td data-label="상세보기"><button type="button" class="btn_s btn_greenline">상세보기</button></td>
+                  </tr>
+                  <tr class="tbl_toggle tbl_tree_con">
+                    <td class="btn_tbltoggle"></td>
+                    <td colspan="9">
+                      <table class="tbl_res">
+                        <caption>시설물 관리 상세 테이블</caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">장비ID</th>
+                            <th scope="col">장비구분</th>
+                            <th scope="col">제조사</th>
+                            <th scope="col">모델명</th>
+                            <th scope="col">Serial</th>
+                            <th scope="col">설치일자</th>
+                            <th scope="col">비고</th>
+                            <th scope="col">운영상태</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="장비ID">KIT-R01</td>
+                            <td data-label="장비구분">환경센서</td>
+                            <td data-label="제조사">guralp</td>
+                            <td data-label="모델명">CMG-DM24</td>
+                            <td data-label="Serial">A1858</td>
+                            <td data-label="설치일자">2022-08-01</td>
+                            <td data-label="비고"></td>
+                            <td data-label="운영상태">운영중</td>
+                          </tr>
+                          <tr>
+                            <td data-label="장비ID">KIT-R02</td>
+                            <td data-label="장비구분">환경센서</td>
+                            <td data-label="제조사">guralp</td>
+                            <td data-label="모델명">CMG-DM25</td>
+                            <td data-label="Serial">A1859</td>
+                            <td data-label="설치일자">2022-08-02</td>
+                            <td data-label="비고"></td>
+                            <td data-label="운영상태">운영중</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  <tr class="tbl_tree_row">
+                    <td data-label=" " class="btn_tbltoggle">+</td>
+                    <td data-label="지역코드">서울 금천구</td>
+                    <td data-label="시설물ID">1</td>
+                    <td data-label="시설명">A 요양원</td>
+                    <td data-label="시설종류">요양원</td>
+                    <td data-label="센서수량">4</td>
+                    <td data-label="운영시작일">2022-09-09</td>
+                    <td data-label="운영종료일"></td>
+                    <td data-label="운영상태">운영중</td>
+                    <td data-label="상세보기"><button type="button" class="btn_s btn_greenline">상세보기</button></td>
+                  </tr>
+                  <tr class="tbl_toggle tbl_tree_con">
+                    <td class="btn_tbltoggle"></td>
+                    <td colspan="9">
+                      <table class="tbl_res">
+                        <caption>시설물 관리 상세 테이블</caption>
+                        <thead>
+                          <tr>
+                            <th scope="col">장비ID</th>
+                            <th scope="col">장비구분</th>
+                            <th scope="col">제조사</th>
+                            <th scope="col">모델명</th>
+                            <th scope="col">Serial</th>
+                            <th scope="col">설치일자</th>
+                            <th scope="col">비고</th>
+                            <th scope="col">운영상태</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td data-label="장비ID">KIT-R01</td>
+                            <td data-label="장비구분">환경센서</td>
+                            <td data-label="제조사">guralp</td>
+                            <td data-label="모델명">CMG-DM24</td>
+                            <td data-label="Serial">A1858</td>
+                            <td data-label="설치일자">2022-08-01</td>
+                            <td data-label="비고"></td>
+                            <td data-label="운영상태">운영중</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -168,138 +419,28 @@
       </div>
     </div>
   </div>
-  </div>
   <!--// 시설물 상세정보 센서 추가 팝업 -->
   <script>
-    $('#btnAddSenser').on('click',function () {
+    // 팝업
+    $('#btnAddSenser').on('click', function () {
       $('#popAddSenser').show();
+    })
 
-      $("#treegrid2").jqGrid({
-        datatype:'local',
-        data:myGridData,
-        colNames:['지역코드','시설물ID','시설명','시설종류','센서수량','운영시작일','운영종료일','운영상태','상세보기'],
-        colModel:[
-          { name:'code',align:'center' },
-          { name:'idname',align:'center' },
-          { name:'name',align:'center' },
-          { name:'type',align:'center' },
-          { name:'length',align:'center' },
-          { name:'datestart',align:'center' },
-          { name:'dateend',align:'center' },
-          { name:'state',align:'center' },
-          { name:'detail',align:'center',formatter:tblBtn },
-        ],
-        subGrid:true,
-        height:200,
-        autowidth:true,
-        subGridRowExpanded:function (subgridDivId,rowId) {
-          var subgridTableId = subgridDivId + "_t";
-          $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-          $("#" + subgridTableId).jqGrid({
-            datatype:'local',
-            data:mySubgrids[rowId],
-            autowidth:false,
-            height:150,
-            colNames:['장비ID','장비구분','제조사','모델명','Serial','설치일자','비고','운영상태'],
-            colModel:[
-              { name:'idname',width:100 },
-              { name:'type',width:100 },
-              { name:'made',width:100 },
-              { name:'name',width:100 },
-              { name:'serial',width:100 },
-              { name:'date',width:100 },
-              { name:'etc',width:100 },
-              { name:'state',width:100 }
-            ],
-          });
+    // tree table
+    const toggleBtns = document.querySelectorAll('.btn_tbltoggle');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const row = btn.parentElement;
+        const contentRow = row.nextElementSibling;
+        contentRow.classList.toggle('tbl_tree_con');
+        btn.textContent = contentRow.classList.contains('tbl_tree_con') ? '+' : '-';
+        const toggleableRow = row.classList.contains('tbl_tree_row') ? row : row.parentElement;
+        if (btn.textContent === '-') {
+          toggleableRow.classList.add('active');
+        } else {
+          toggleableRow.classList.remove('active');
         }
       });
-
-      function jqgridInit() {
-        $('.jq-grid').each(function () {
-          $(this).setGridWidth($(this).parents('.tbl_wrap').width() - 2);
-        });
-      }
-      $(window).on('resize',function () {
-        jqgridInit();
-      });
-    })
-  </script>
-
-  <script>
-    var mydata = [
-      { id:"m1",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
-      { id:"m2",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
-      { id:"m3",지역코드:"경기 남양주시",시설물ID:"2",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
-      { id:"m4",지역코드:"서울 금천구",시설물ID:"1",시설명:"ㅇㅇ 요양원",시설종류:"요양원",센서수량:"4",운영시작일:"2022-09-09",운영종료일:"",운영상태:"운영중",상세보기:"<button type='button' class='btn_s btn_greenline'>상세보기</button>" },
-    ],
-      mySubgrids = {
-        m1:[
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" }
-        ],
-        m2:[
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" },
-          { idname:"KIT-R01",type:"환경센서",made:"guralp",name:"CMG-DM24",serial:"A1858",date:"2022-08-01",etc:"",state:"운영중" }
-        ]
-      };
-
-    $("#treegrid").jqGrid({
-      data:mydata,
-      datatype:"local",
-      colNames:["지역코드","시설물ID"," 시설명","시설종류","센서수량","운영시작일","운영종료일","운영상태","상세보기"],
-      colModel:[
-        { name:'지역코드',editable:true },
-        { name:'시설물ID',editable:true },
-        { name:'시설명',editable:true },
-        { name:'시설종류',editable:true },
-        { name:'센서수량',editable:true },
-        { name:'운영시작일',editable:true },
-        { name:'운영종료일',editable:true },
-        { name:'운영상태',editable:true },
-        { name:'상세보기',editable:false }
-      ],
-      pager:'#gridpager',
-      autowidth:true,
-      height:480,
-      'cellsubmit':'clientArray',
-      editurl:'clientArray',
-      subGrid:true,
-      subGridRowExpanded:function (subgridDivId,rowId) {
-        var subgridTableId = subgridDivId + "_t";
-        $("#" + subgridDivId).html("<table id='" + subgridTableId + "'></table>");
-        $("#" + subgridTableId).jqGrid({
-          datatype:'local',
-          data:mySubgrids[rowId],
-          autowidth:true,
-          height:160,
-          colNames:['장비ID','장비구분','제조사','모델명','Serial','설치일자','비고','운영상태'],
-          colModel:[
-            { name:'idname',width:100 },
-            { name:'type',width:100 },
-            { name:'made',width:100 },
-            { name:'name',width:100 },
-            { name:'serial',width:100 },
-            { name:'date',width:100 },
-            { name:'etc',width:100 },
-            { name:'state',width:100 }
-          ],
-        })
-      }
-    });
-    $("#treegrid").navGrid("#gridpager",{ edit:false,add:false,del:true });
-    $("#treegrid").jqGrid('inlineNav',"#gridpager");
-
-    function jqgridInit() {
-      $('.jq-grid').each(function () {
-        $(this).setGridWidth($(this).parents('.tbl_wrap').width() - 2);
-      });
-    }
-    $(window).on('resize',function () {
-      jqgridInit();
     });
   </script>
 </body>

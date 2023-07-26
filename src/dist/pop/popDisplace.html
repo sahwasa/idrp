@@ -3,7 +3,7 @@
   <div class="pop_wrap p_fever">
     <div class="pop_tit">
       <div class="flex_wrap ai_c">
-        <h1>발열 i-watcher</h1>
+        <h1> i-watcher</h1>
         <span class="tit_date">2023년 06월 19일</span>
       </div>
       <button type="button" class="btn_pop_close" closePop></button>
@@ -11,7 +11,7 @@
     <div class="pop_body">
       <div class="pop_cont">
         <table class="tbl_row tbl_tit">
-          <caption>발열 정보 제목 테이블</caption>
+          <caption>변위 정보 제목 테이블</caption>
           <colgroup>
             <col style="width:40%;">
             <col style="width:60%;">
@@ -21,9 +21,101 @@
             <td class="alignC">ID name</td>
           </tr>
         </table>
-        <div class="tbl_wrap">
-          <table id="jqGridPopDisplace" class="jq-grid"></table>
-        </div>
+        <table class="tbl_com">
+          <tbody>
+            <tr>
+              <td>
+                <table class="tbl_scroll_head">
+                  <caption>변위 제목 테이블</caption>
+                  <colgroup>
+                    <col style="width:20%;">
+                    <col style="width:26%;">
+                    <col style="width:18%;">
+                    <col style="width:18%;">
+                    <col style="width:18%;">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">측정시간</th>
+                      <th scope="col">센서 정보</th>
+                      <th scope="col">호흡</th>
+                      <th scope="col">심박</th>
+                      <th scope="col">측정거리</th>
+                    </tr>
+                  </thead>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="tbl_scroll" style="height:240px;">
+                  <table class="tbl_com">
+                  <caption>변위 내용 테이블</caption>
+                    <colgroup>
+                      <col style="width:20%;">
+                      <col style="width:26%;">
+                      <col style="width:18%;">
+                      <col style="width:18%;">
+                      <col style="width:18%;">
+                    </colgroup>
+                    <tbody>
+                      <tr>
+                        <th rowspan="4">h:mm</th>
+                        <td>KITV사무실 #1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <th rowspan="4">h:mm</th>
+                        <td>KITV사무실 #1</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #3</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                      <tr>
+                        <td>KITV사무실 #4</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         <div class="btn_wrap alignR">
           <button type="button" class="btn_m btn_greenline">엑셀 저장</button>
         </div>

@@ -9,16 +9,16 @@
       <div class="compare_wrap">
         <ul class="search f_sb">
           <li>
-            <label for="">분류</label>
-            <select name="" id="">
+            <label for="division">분류</label>
+            <select name="search" id="division">
               <option value="선택">선택</option>
               <option value="i-Watcher">i-Watcher</option>
               <option value="환경센서" selected>환경센서</option>
             </select>
           </li>
           <li>
-            <label for="">분류</label>
-            <select name="" id="">
+            <label for="element">요소</label>
+            <select name="search" id="element">
               <option value="선택">선택</option>
               <option value="발열(발열자 수)">발열(발열자 수)</option>
               <option value="기침(기침자 수)">기침(기침자 수)</option>
@@ -44,28 +44,28 @@
             </span>
           </li>
           <li>
-            <label for="">조건</label>
+            <label for="condition">조건</label>
             <span>
               <ul class="condition_date">
                 <li>
                   <input type="checkbox" id="condition_month">
                   <label for="condition_month">월</label>
-                  <select name="">
+                  <select title="시작 월 조건">
                     <option value="선택">선택</option>
                   </select>
                   <span>~</span>
-                  <select name="">
+                  <select title="종료 월 조건">
                     <option value="선택">선택</option>
                   </select>
                 </li>
                 <li>
                   <input type="checkbox" id="condition_day">
                   <label for="condition_day">일</label>
-                  <select name="">
+                  <select title="시작 일 조건">
                     <option value="선택">선택</option>
                   </select>
                   <span>~</span>
-                  <select name="">
+                  <select title="종료 일 조건">
                     <option value="선택">선택</option>
                   </select>
                 </li>

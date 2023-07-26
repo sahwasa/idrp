@@ -45,14 +45,14 @@
   </ul>
   <div>
     <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-      <span>모니터링사이트</span>
+      <span>모니터링 사이트</span>
       <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
     </a>
     <div class="m_con">
       <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
       <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
         <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-          <span>모니터링 사이트로 이동하기</span>
+          <span>모니터링 사이트</span>
           <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
         </a>
         <ul class="m_gnb m_con" role="navigation">
@@ -100,7 +100,7 @@
                 </select>
               </li>
               <li>
-                <input type="text" id="danger_name" placeholder="검색어를 입력하세요">
+                <input type="text" placeholder="검색어를 입력하세요" title="검색어 입력 박스">
               </li>
               <li class="btn_wrap">
                 <button type="button" class="font_b btn_m btn_orange">검색</button>
@@ -112,18 +112,18 @@
               <button type="button" class="font_b btn_m btn_blue">추가</button>
               <button type="button" class="font_b btn_m btn_lightgray">삭제</button>
             </div>
-            <table class="tbl_com">
-              <caption>공지사항</caption>
+            <table class="tbl_res tbl_check">
+              <caption>사용자 관리 테이블</caption>
               <colgroup>
-                <col width="80px">
-                <col width="140px">
-                <col width="150px">
-                <col width="150px">
-                <col width="150px">
-                <col width="150px">
-                <col width="150px">
-                <col width="150px">
-                <col width="150px">
+                <col width="4%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
+                <col width="12%">
               </colgroup>
               <thead>
                 <tr>
@@ -140,132 +140,28 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
+                  <td data-label="선택"><input type="checkbox" title="checkbox"></td>
+                  <td data-label="권한">관리자</td>
+                  <td data-label="사용자ID">sysadmin</td>
+                  <td data-label="사용자명">홍길동</td>
+                  <td data-label="소속기관">ㅇㅇㅇ요양원</td>
+                  <td data-label="부서"></td>
+                  <td data-label="직급">Y</td>
+                  <td data-label="등록일">2022-06-09</td>
+                  <td data-label="수정">
                     <span class="ico_circle ico_edit">수정</span>
                   </td>
                 </tr>
                 <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td>관리자</td>
-                  <td>sysadmin</td>
-                  <td>홍길동</td>
-                  <td>ㅇㅇㅇ요양원</td>
-                  <td></td>
-                  <td>Y</td>
-                  <td>2022-06-09</td>
-                  <td>
+                  <td data-label="선택"><input type="checkbox" title="checkbox"></td>
+                  <td data-label="권한">관리자</td>
+                  <td data-label="사용자ID">sysadmin</td>
+                  <td data-label="사용자명">홍길동</td>
+                  <td data-label="소속기관">ㅇㅇㅇ요양원</td>
+                  <td data-label="부서"></td>
+                  <td data-label="직급">Y</td>
+                  <td data-label="등록일">2022-06-09</td>
+                  <td data-label="수정">
                     <span class="ico_circle ico_edit">수정</span>
                   </td>
                 </tr>
@@ -309,6 +205,7 @@
 <script src="../../plugins/slick/slick.min.js"></script>
 <script src="../../js/file_attach.js"></script>
 <script src="../../js/ui_common.js"></script>
+
 </body>
 
 </html>

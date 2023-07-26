@@ -1,9 +1,9 @@
 $(function () {
-  jqgridInit();
-  
+  jqgridInit()
+
   // 로그인 팝업
   $('.btn_login_modal').on('click', function () {
-    $('.login_body').toggleClass('on');
+    $('.login_body').toggleClass('on')
   })
   // 지도 드래그
   $('#draggable').draggable()
@@ -130,7 +130,9 @@ $(function () {
     }
   })
   $('.m_con > li').each(function () {
-    $(this).children('a').on('click', function (e) {
+    $(this)
+      .children('a')
+      .on('click', function (e) {
         if ($(this).siblings().length > 0) {
           e.preventDefault()
           $(this).parent().addClass('active').siblings().removeClass('active')
@@ -162,4 +164,17 @@ function jqgridInit() {
 }
 $(window).on('resize', function () {
   jqgridInit()
+})
+
+// JavaScript
+const checkboxes = document.querySelectorAll('.tbl_check input[type="checkbox"]')
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    const parentRow = checkbox.closest('tr')
+    if (checkbox.checked) {
+      parentRow.classList.add('on')
+    } else {
+      parentRow.classList.remove('on')
+    }
+  })
 })

@@ -257,34 +257,6 @@
         align: 'end'
       }
     };
-    // 그리드
-    var gridData = [
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" },
-      { "d0": "hh:mm:ss", "d1": "발열", "d2": "37.3℃", "d3": "보기" }
-    ]
-    var mydata = [
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { rowspan: "4" }}},
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}},
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { rowspan: "4" }}},
-    {"d0": "", "d1": "", "d2": "", "d3": "", "d4": "", attr: { "d0": { display: "none" }}}
-    ],
-      arrtSetting = function (rowId, val, rawObject, cm) {
-        var attr = rawObject.attr[cm.name], result;
-        if (attr.rowspan) {
-          result = ' rowspan=' + '"' + attr.rowspan + '"';
-        } else if (attr.display) {
-          result = ' style="display:' + attr.display + '"';
-        }
-        return result;
-      };
-
 
     // 함수
     // 팝업
@@ -295,7 +267,6 @@
     function showPopDisplace() {
       $('#popDisplace').show();
       jqgridInit();
-      rowSpanTdSet();
     }
     function showPopImgDetail() {
       $('#popImgDetail').show();
@@ -331,23 +302,6 @@
       });
     }
 
-    // 그리드 내 버튼
-    function btnMore(cellvalue) {
-      var str = "";
-      str += "<button type='button' class='btn_m btn_blue' onclick='showPopImgDetail()'>" + cellvalue + "</button>";
-      return str;
-    }
-    // 병합 셀 스타일 적용
-    function rowSpanTdSet(){
-      var mergedCells = document.querySelectorAll('td[rowspan]');
-        mergedCells.forEach(function (cell) {
-          // 병합된 셀에 스타일 적용
-          cell.classList.add('absorption');
-        });
-    }
-
-
-
     // 이미지 슬라이더
     function imgSlide() {
       // 기침 팝업 내 이미지 슬라이더
@@ -371,7 +325,6 @@
         ]
       });
     }
-
 
     // 공간정보 모니터링 이미지 슬라이더
     $('.slider-for').slick({
@@ -397,47 +350,6 @@
     createChart(document.getElementById('chartCo2').getContext('2d'), 'line');
     createChart(document.getElementById('chartPopFever').getContext('2d'), 'line');
     createChartDual(document.getElementById('chartPopCough').getContext('2d'));
-
-    // 그리드
-    $("#jqGridPopFever").jqGrid({
-      data: gridData,
-      datatype: "local",
-      colModel: [
-        { label: '측정시간', name: 'd0', align: 'center' },
-        { label: '이상징후', name: 'd1', align: 'center' },
-        { label: '발열온도', name: 'd2', align: 'center' },
-        { label: '촬영사진', name: 'd3', align: 'center', formatter: btnMore },
-      ],
-      height: 240,
-      rowTotal: -1,
-      rownumbers: true,
-      jsonReader: { repeatitems: false },
-      shrinkToFit: true,
-      autoWidth: true
-    })
-    jqgridInit();
-
-    $("#jqGridPopDisplace").jqGrid({
-      data: mydata,
-      datatype: "local",
-      colModel: [
-        {label: ' ', name: 'd0', align: 'center', cellattr: arrtSetting },
-        {label: ' ', name: 'd1', align: 'center'},
-        {label: ' ', name: 'd2', align: 'center'},
-        {label: ' ', name: 'd3', align: 'center'},
-        {label: ' ', name: 'd4', align: 'center'}
-      ],
-      height: 400,
-      rowTotal: -1,
-      rownumbers: true,
-      jsonReader: { repeatitems: false },
-      shrinkToFit: true,
-      autoWidth: true,
-      beforeSelectRow: function () {
-        rowSpanTdSet()
-      }
-    })
-    jqgridInit();
   </script>
 </body>
 

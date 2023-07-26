@@ -45,14 +45,14 @@
   </ul>
   <div>
     <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-      <span>모니터링사이트</span>
+      <span>모니터링 사이트</span>
       <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
     </a>
     <div class="m_con">
       <a href="#" class="m_con allMenuOpen">전체메뉴 열기</a>
       <div id="allMenuBox" tabindex="0" class="ins_allMenuBox active">
         <a onclick="location.href='../default/info01.html'" href="#" class="link flex_wrap">
-          <span>모니터링 사이트로 이동하기</span>
+          <span>모니터링 사이트</span>
           <img src="../../images/ico_blank.png" alt="모니터링 사이트 이동 아이콘">
         </a>
         <ul class="m_gnb m_con" role="navigation">
@@ -90,12 +90,12 @@
           <div class="standard_wrap">
             <ul class="search">
               <li>
-                <select name="" id="">
+                <select name="search" title="검색조건 선택 박스">
                   <option value="검색조건">검색조건</option>
                 </select>
               </li>
               <li>
-                <input type="text" id="danger_name" placeholder="검색어를 입력하세요">
+                <input type="text" placeholder="검색어를 입력하세요" title="검색어 입력 박스">
               </li>
               <li class="btn_wrap">
                 <button type="button" class="font_b btn_m btn_orange">검색</button>
@@ -104,18 +104,18 @@
           </div>
           <div class="tbl_user">
             <div class="tbl_top flex_wrap f_sb alignR">
-                <p>총 <span class="font_b">10</span>건</p>
-                <button onclick="location.href='notice01_2.html'" type="button" class="font_b btn_m btn_blue">등록</button>
+              <p>총 <span class="font_b">10</span>건</p>
+              <button onclick="location.href='notice01_2.html'" type="button" class="font_b btn_m btn_blue">등록</button>
             </div>
-            <table class="tbl_com">
-              <caption>공지사항</caption>
+            <table class="tbl_res">
+              <caption>공지사항 테이블</caption>
               <colgroup>
-                <col width="80px">
-                <col width="">
-                <col width="150px">
-                <col width="150px">
-                <col width="100px">
-                <col width="100px">
+                <col style="width:5%">
+                <col style="width:45%">
+                <col style="width:15%">
+                <col style="width:15%">
+                <col style="width:10%">
+                <col style="width:10%">
               </colgroup>
               <thead>
                 <tr>
@@ -129,16 +129,84 @@
               </thead>
               <tbody>
                 <tr onclick="location.href='notice01_1.html'">
-                  <td>1</td>
-                  <td class="alignL">저를 클릭해주세요</td>
-                  <td>홍길동</td>
-                  <td>2022-06-09</td>
-                  <td>
-                    <span class="ico_circle ico_file">파일</span>
-                  </td>
-                  <td>
-                    <span class="ico_circle ico_edit">수정</span>
-                  </td>
+                  <td scope="row" data-label="번호">10</td>
+                  <td data-label="제목" class="alignL">저를 클릭해주세요</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">9</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">8</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">7</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">6</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">5</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">4</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">3</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">2</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
+                </tr>
+                <tr>
+                  <td scope="row" data-label="번호">1</td>
+                  <td data-label="제목" class="alignL">공지사항 게시글 임시 제목</td>
+                  <td data-label="작성자">홍길동</td>
+                  <td data-label="등록일">2022-07-24</td>
+                  <td data-label="파일"><span class="ico_circle ico_file">파일</span></td>
+                  <td data-label="수정"><span class="ico_circle ico_edit">수정</span></td>
                 </tr>
               </tbody>
             </table>
@@ -166,7 +234,6 @@
     </div>
   </div>
 
-  </div>
   <!-- // Contents -->
   <!-- Footer -->
 <div class="footer flex_wrap f_sb">
@@ -176,7 +243,8 @@
   </div>
   <copy>Copyright &copy; 2023 . All rights reserved.</copy>
 </div>
-<!-- // Footer --><script src="../../plugins/jquery/dist/jquery.min.js"></script>
+<!-- // Footer -->
+  <script src="../../plugins/jquery/dist/jquery.min.js"></script>
 <script src="../../plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="../../plugins/jquery-ui/ui/i18n/datepicker-ko.js"></script>
 <script src="../../plugins/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min.js"></script>
